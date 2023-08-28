@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 })
 
-routes.get("^/$|/Full-Stack EOMP - NodeJS", (req, res) => {
+routes.get("^/$|/CapStone - FullStack", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./static/html/index.html"));
   }
 );

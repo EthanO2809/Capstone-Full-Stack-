@@ -5,8 +5,8 @@ const { createToken } = require("../middleware/AuthenticateUser");
 class Users {
   fetchUsers(req, res) {
     const query = `
-            SELECT UserID, firstName, lastName, userAge, Gender, userRole, emailAdd, userProfile
-            FROM Users
+            SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, Userpass
+            FROM USERS
         `;
     db.query(query, (err, data) => {
       if (err) throw err;
@@ -18,8 +18,8 @@ class Users {
   }
   fetchUser(req, res) {
     const query = `
-        SELECT UserID, firstName, lastName, userAge, Gender, userRole, emailAdd, userProfile
-        FROM Users
+        SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, UserPass
+        FROM USERS
         WHERE UserID = ${req.params.UserID}
         `;
     db.query(query, (err, data) => {
@@ -31,14 +31,14 @@ class Users {
     });
   }
   async login(req, res) {
-    const { emailAdd, userPass } = req.body;
+    const { EmailAdd, UserPass } = req.body;
     // query
     const query = `
-      SELECT firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
-      FROM Users
-      WHERE emailAdd = ?
+      SELECT UserName, UserAge, EmailAdd, UserPass
+      FROM USERS
+      WHERE EmailAdd = ?
     `;
-    db.query(query, [emailAdd], async (err, result) => {
+    db.query(query, [EmailAdd], async (err, result) => {
       if (err) throw err;
       if (!result?.length) {
         res.json({
@@ -46,12 +46,12 @@ class Users {
           msg: "You are providing the wrong email",
         });
       } else {
-        compare(userPass, result[0].userPass, (cerr, cresult) => {
+        compare(UserPass, result[0].UserPass, (cerr, cresult) => {
           if (cerr) throw cerr;
           // Create a token
           const token = createToken({
-            emailAdd,
-            userPass,
+            EmailAdd,
+            UserPass,
           });
           // Save A token
           res.cookie("realUser", token, {
@@ -76,13 +76,13 @@ class Users {
   }
   async registerUser(req, res) {
     const data = req.body;
-    data.userPass = await hash(data.userPass, 15);
+    data.UserPass = await hash(data.UserPass, 15);
     const user = {
-      emailAdd: data.emailAdd,
-      userPass: data.userPass,
+      EmailAdd: data.EmailAdd,
+      UserPass: data.UserPass,
     };
     const query = `
-            INSERT INTO Users SET ?
+            INSERT INTO USERS SET ?
         `;
     db.query(query, [data], (err) => {
       if (err) throw err;
@@ -99,7 +99,7 @@ class Users {
   }
   removeUser(req, res) {
     const query = `
-            DELETE FROM Users WHERE UserID = ${req.params.userID}
+            DELETE FROM USERS WHERE UserID = ${req.params.UserID}
         `;
     db.query(query, (err) => {
       if (err) throw err;
@@ -111,7 +111,7 @@ class Users {
   }
   updateUser(req, res) {
     const query = `
-            UPDATE Users SET ? WHERE UserID = ${req.params.userID}
+            UPDATE USERS SET ? WHERE UserID = ${req.params.UserID}
         `;
     db.query(query, [req.body], (err) => {
       if (err) throw err;
@@ -123,4 +123,6 @@ class Users {
   }
 }
 
-module.exports = { Users };
+module.exports = {
+    Users
+};

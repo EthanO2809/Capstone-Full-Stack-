@@ -1,10 +1,10 @@
 const express = require("express");
-const { users, products, orders } = require("../model");
+const { users, products } = require("../model");
 const { verifyAToken } = require("../middleware/AuthenticateUser");
 const routes = express.Router();
 const bodyParser = require("body-parser");
 
-routes.get("/users", (req, res) => {
+routes.get("/Users", (req, res) => {
   users.fetchUsers(req, res);
 });
 routes.get("/user/:id", (req, res) => {

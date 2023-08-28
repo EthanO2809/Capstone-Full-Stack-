@@ -4,4 +4,4 @@ const { Products } = require('./Products')
 module.exports = {
     users: new Users(),
     products: new Products(),
-}
+};
