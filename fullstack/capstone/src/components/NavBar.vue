@@ -1,8 +1,10 @@
 <template>
-<nav class="navbar bg-body-tertiary fixed-top">
+<nav class="navbar bg-black fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/mZ6w69MS/14.jpg" alt="" class="img01"></a>
+    <h2>PC Wizard</h2>
+    <a href="#" class="login"><p>Register || Log In</p></a>
+    <button class="navbar-toggler bgs" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -49,5 +51,25 @@ export default {
 </script>
 
 <style scoped>
+.bgs{
+  background-color: rgb(0, 0, 176);
+}
 
+h2{
+  color: gold;
+  font-family: 'Khula', sans-serif;
+  font-weight: bolder;
+  font-size: 2.4rem;
+}
+.login{
+  color: white;
+  text-align: right;
+}
+
+.img01{
+  width: 5.8rem;
+  height: 5.2rem
+}
+
+@import url('https://fonts.cdnfonts.com/css/khula');
 </style>

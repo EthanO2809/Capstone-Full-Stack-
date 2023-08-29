@@ -1,41 +1,40 @@
 <template>
-    <div class="footer">
+    <div class="footer fixed-bottom">
         <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4 col-md-3 item">
-            <img src="https://i.postimg.cc/SKnDPNnc/Screenshot-2023-08-21-095136-removebg-preview.png" loading="lazy" alt="logo" class="logo img-fluid">
+            <img src="https://i.postimg.cc/g0RxWngQ/14-removebg-preview.png" loading="lazy" alt="logo" class="logo img-fluid">
         </div>
         <div class="col-sm-4 col-md-3 item">
-            <h3>Services</h3>
+            <h3>Account</h3>
             <br>
             <ul>
-                <li><a href="/products">Products</a></li><br>
-                <li><a href="./html/test.html">Help</a></li><br>
-                <li><a href="/contact">Contact</a></li>
+                <li><a class="text-white" href="/products"><p class="text-white">My Account</p></a></li><br>
+                <li><a href="./html/test.html"><p class="text-white">My Orders</p></a></li><br>
+                <li><a href="/contact"><p class="text-white">Log in || Register</p></a></li>
             </ul>
         </div>
         <div class="col-sm-4 col-md-3 item">
-            <h3>About Us</h3>
+            <h3>What We Offer</h3>
             <br>
-            <ul>
-                <li><a href="/about">Company</a></li><br>
-                <li><a href="#">Team</a></li>
+            <ul class="text-white">
+                <li><a href="/about"><p class="text-white">PC / Monitor Range</p></a></li><br>
+                <li><a href="#"><p class="text-white">Laptop Range</p></a></li><br>
+                <li><a href="#"><p class="text-white">Accessories Range</p></a></li>
             </ul>
         </div>
         <div class="col-sm-4 col-md-3 item">
             <h3>Contact Us</h3>
-            <ul>
-                <li>Address: <br>
-                  47 Toner Street <br>
-                  Cape Town <br>
-                  7500
+            <br>
+            <ul class="text-white fw-2">
+                <li>PC_Wizard@gmail.com
                 </li><br>
-                <li>Phone number: 021 970 1470</li><br>
-                <li>Our Email: SoleCartel@gmail.com</li>
+                <li>Tel.: 021 656 7495</li><br>
+                <li>Address: 4376 Lavender Cresc. <br>
+                    Cape Town, 7680</li>
             </ul>
         </div>
-        <hr>
-        <div class="conatiner">
+        <!-- <div class="conatiner">
             <div class="footer-social-icon">
                 <span>Follow us</span>
                 <br>
@@ -46,7 +45,7 @@
             <div class="copyright">
                 <p class="copyright">Sole Cartel © 2023</p>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -61,9 +60,13 @@
 </script>
 
 <style scoped>
+li{
+  font-weight: 500;
+}
+
 .footer {
     padding:50px 0;
-    background-color:grey !important;
+    background-color:rgb(0, 0, 0) !important;
     color:black !important;
   }
 
@@ -79,7 +82,8 @@
     margin-top:0;
     margin-bottom:12px;
     font-weight:bold;
-    font-size:16px;
+    font-size:20px;
+    color: gold;
   }
   
   .footer ul {
@@ -90,7 +94,8 @@
     margin-bottom:0;
   }
   .logo{
-    width: 20rem;
+    height: 14rem;
+    width: 16rem;
   }
 
   .item{
@@ -105,20 +110,21 @@
   
   .footer ul a:hover {
     opacity:1;
-    color: rgb(200, 199, 199) !important;
+    color: rgb(255, 255, 255) !important;
   }
   
-  .copyright {
+  /* .copyright {
     color: black !important;
     display: inline-flex !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
     float: left;
-  }
+  } */
 
- .instagram{
+ /* .instagram{
     width: 2rem;
+    background-color: #fff;
  }
 
  .facebook{
@@ -128,5 +134,5 @@
  .twitter{
   width: 2rem;
  }
-  
+   */
 </style>

@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-const miniURL = "";
+const miniURL = "https://capstone-ethanlo.onrender.com";
 
 export default createStore({
   state: {
@@ -30,9 +30,6 @@ export default createStore({
     },
     setProduct(state, product) {
       state.product = product;
-    },
-    setSpinner(state, spinner) {
-      state.spinner = value;
     },
     setToken(state, token) {
       state.token = token;
