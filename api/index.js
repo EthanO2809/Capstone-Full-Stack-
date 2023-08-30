@@ -12,6 +12,7 @@ app.use(express.static('./static'),
   }),
   cookieParser(),
   cors(),
+  errorHandling,
   routes
   );
 
@@ -32,13 +33,7 @@ routes.get("^/$|/CapStone - FullStack", (req, res) => {
 
 // cookieParser & Router
 // cookieParser should be set before router
-app.use(cookieParser(), cors(), errorHandling, routes);
-app.use(
-  express.json(),
-  express.urlencoded({
-    extended: true,
-  })
-);
+
 
 
 app.listen(port, () => {
