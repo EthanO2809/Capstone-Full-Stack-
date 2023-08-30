@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 })
 
 routes.get("^/$|/CapStone - FullStack", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./static/html/index.html"));
+    res.sendFile(path.resolve(__dirname, "./"));
   }
 );
 
