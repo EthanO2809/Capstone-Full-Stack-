@@ -57,8 +57,13 @@ export default createStore({
     },
     async fetchProducts(context) {
       try {
-        const { data } = await axios.get(`${miniURL}products`);
-        context.commit("setProducts", data.results);
+        const { err, results } = await axios.get(`${miniURL}products`)
+        if(results){
+          context.commit('setProducts', results)
+        }
+        if(err){
+          throw err
+        }
       } catch (e) {
         context.commit("setMsg", "an error occured");
       }
