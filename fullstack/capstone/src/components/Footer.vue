@@ -1,5 +1,5 @@
 <template>
-    <div class="footer fixed-bottom">
+    <div class="footer">
         <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4 col-md-3 item">
@@ -65,7 +65,7 @@ li{
 }
 
 .footer {
-    padding:50px 0;
+    padding:10px 0;
     background-color:rgb(0, 0, 0) !important;
     color:black !important;
   }
@@ -82,7 +82,7 @@ li{
     margin-top:0;
     margin-bottom:12px;
     font-weight:bold;
-    font-size:20px;
+    font-size:14px;
     color: gold;
   }
   
@@ -90,12 +90,12 @@ li{
     padding:0;
     list-style:none;
     line-height:1.6;
-    font-size:14px;
+    font-size:10px;
     margin-bottom:0;
   }
   .logo{
-    height: 14rem;
-    width: 16rem;
+    height: 8rem;
+    width: 8rem;
   }
 
   .item{

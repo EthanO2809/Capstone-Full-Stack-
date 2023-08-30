@@ -1,7 +1,5 @@
 <template>
-  <div class="hello">
-    <h2 class="categories text-black">Categories</h2>
-  </div>
+
 </template>
 
 <script>

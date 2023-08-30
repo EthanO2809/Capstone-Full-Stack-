@@ -1,75 +1,108 @@
 <template>
-<nav class="navbar bg-black fixed-top">
+  <nav class="navbar navbar-expand-lg navbarr">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/mZ6w69MS/14.jpg" alt="" class="img01"></a>
-    <h2>PC Wizard</h2>
-    <a href="#" class="login"><p>Register || Log In</p></a>
-    <button class="navbar-toggler bgs" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    <a class="navbar-brand text-white" href="#"><img src="https://i.postimg.cc/nrZ260G3/14-removebg-preview.png" alt="" class="img-01"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">AboutUs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">ContactUs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Admin</a>
+        </li>
+      </ul>
     </div>
-  </div>
+        <a class="nav-link text-white" href="/">ShopUs</a>
+        <a class="nav-link text-white" href="/"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02"></a>
+      </div>
 </nav>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
-.bgs{
+.bgs {
   background-color: rgb(0, 0, 176);
 }
 
-h2{
-  color: gold;
-  font-family: 'Khula', sans-serif;
-  font-weight: bolder;
-  font-size: 2.4rem;
-}
-.login{
-  color: white;
-  text-align: right;
+.img-01 {
+  width: 7.4rem;
+  height: 7rem;
 }
 
-.img01{
-  width: 5.8rem;
-  height: 5.2rem
+.navbarr {
+  background-color: #312e81 !important;
+  position: relative;
+  font-size: 1.6rem;
 }
 
-@import url('https://fonts.cdnfonts.com/css/khula');
+.flex{
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
+}
+
+li{
+  padding: 1.5rem;
+}
+
+.img-02{
+  width: 3rem;
+  height: 3.4rem;
+}
+
+.dd{
+  margin-right: 2rem;
+}
+
+.nav-item {
+  color: #e1e1e1;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.nav-item:focus,
+.nav-item:hover {
+  color: #fff;
+}
+
+.nav-item:focus:after,
+.nav-item:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.nav-item:after {
+  content: "";
+  pointer-events: none;
+  bottom: 18px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+@import url("https://fonts.cdnfonts.com/css/khula");
 </style>
