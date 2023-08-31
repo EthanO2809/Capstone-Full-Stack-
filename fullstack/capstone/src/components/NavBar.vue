@@ -104,5 +104,11 @@ li{
   transition-property: width, left;
 }
 
+.nav-link {
+  position: relative;
+  right: 10%;
+  margin-right: 2rem;
+}
+
 @import url("https://fonts.cdnfonts.com/css/khula");
 </style>

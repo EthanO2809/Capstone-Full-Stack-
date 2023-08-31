@@ -9,4 +9,12 @@
     color: white;
     letter-spacing: .1rem;
     font-size: 2.4rem;
+    margin-top: 5rem;
+    margin-bottom: 3.8rem;
+}
+
+.hero-button {
+    font-family: 'Learninglings', sans-serif;
+    letter-spacing: .1rem;
+    font-size: 2.4rem !important;
 }

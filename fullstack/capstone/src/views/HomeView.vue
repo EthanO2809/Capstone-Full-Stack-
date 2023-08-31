@@ -1,14 +1,28 @@
 <template>
   <div class="home">
+
+    <div class="hero">
+      <img src="https://i.postimg.cc/pVDbrSFG/Screenshot-2023-08-31-084124.png" alt="" class="heroimg">
+      <h2 class="hero-text">Your Ultimate Destination for <br> Cutting-Edge Tech Solutions
+
+      </h2>
+    </div>
+      <button class="cta">
+    <a href="/fullstack/capstone/src/views/ProductsView.vue" class="text-decoration-none"><span class="hover-underline-animation"> Shop now </span></a>
+    <svg viewBox="0 0 46 16" height="20" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+        <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+    </svg>
+</button>
+
     <center>
-      <h2 class="h-02">Shop Our Categories</h2>
+      <h2 class="h-02">Shop By Category</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center gap-6">
         <div class="col">
         <div class="card">
 <div class="card-img"><img src="https://i.postimg.cc/cCMB2yz5/Screenshot-2023-08-30-110650.png" alt="" class="img-01"></div>
   <div class="card-info">
     <div class="card-text">
-      <p class="text-title">PC & Monitor</p>
+      <p class="text-title">PC&Monitor</p>
       <p class="text-subtitle">Category</p>
     </div>
     <div class="card-icon">
@@ -64,7 +78,7 @@ export default {};
 
 .home {
   background-color: #312e81;
-  height: 100vh;
+  height: 100%;
   background-attachment: fixed;
 }
 .categories {
@@ -77,12 +91,13 @@ export default {};
 }
 
 .card {
-  margin-top: 3rem;
-  width: 210px;
-  height: 274px;
+  margin-bottom: 4rem !important;
+  width: 250px;
+  height: 294px;
   position: relative;
   border-radius: 16px;
   background: #f5f5f500;
+  box-shadow: rgb(35, 35, 35) 0px 2px 16px 8px;
   transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
   cursor: pointer;
@@ -97,13 +112,14 @@ export default {};
 
 .img-01 {
   width: 19rem;
-  height: 17.1rem;
+  height: 19.1rem;
 }
 
 .card-info {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 2%;
+  left: 2%;
   padding: 1rem;
   display: flex;
   align-items: flex-end;
@@ -154,11 +170,98 @@ export default {};
 
 /*Hover*/
 .card:hover {
-  box-shadow: 0 10px 20px 4px rgba(35, 35, 35, 0.1);
+  box-shadow: rgb(255, 255, 255) 0px 2px 16px 8px;
+  transform: scale(1.2);
+  transition: ease-in-out 2s;
 }
 
 .card:hover .card-icon {
   opacity: 1;
   transform: translateX(20%);
+}
+
+.hero {
+  position: relative;
+}
+
+.cta {
+  position: absolute;
+  top: 80%;
+  left: 14%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: none;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 2rem;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: rgb(255, 255, 255);
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#arrow-horizontal {
+  width: 3rem;
+  margin-bottom: 1rem;
+  fill: white;
+}
+
+.heroimg {
+  position: relative;
+  border-radius: 1rem;
+  right: 30%;
+  object-fit: cover;
+  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  left: 32%;
+  position: absolute;
+  color: #fff;
+  font-size: 4rem; 
+  bottom: 50%;
 }
 </style>
