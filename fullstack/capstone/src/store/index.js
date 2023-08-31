@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-const miniURL = "https://capstone-ethanlo.onrender.com";
+const miniURL = "https://capstone-ethanlo.onrender.com/";
 
 export default createStore({
   state: {
@@ -31,6 +31,9 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
+    setSpinner(state, spinner) {
+      state.spinner = value;
+    },
     setToken(state, token) {
       state.token = token;
     },
@@ -41,7 +44,7 @@ export default createStore({
   actions: {
     async fetchUsers(context) {
       try {
-        const { data } = await axios.get(`${miniURL}users`);
+        const { data } = await axios.get(`${miniURL}Users`);
         context.commit("setUsers", data.results);
       } catch (e) {
         context.commit("setMsg", "an error occured");
@@ -57,13 +60,8 @@ export default createStore({
     },
     async fetchProducts(context) {
       try {
-        const { err, results } = await axios.get(`${miniURL}products`)
-        if(results){
-          context.commit('setProducts', results)
-        }
-        if(err){
-          throw err
-        }
+        const { data } = await axios.get(`${miniURL}products`);
+        context.commit("setProducts", data.results);
       } catch (e) {
         context.commit("setMsg", "an error occured");
       }
