@@ -1,4 +1,4 @@
-const db = require('../config')
+const {connection} = require('../config/index')
 
 class Products{
     fetchProducts(req, res) {
@@ -6,7 +6,7 @@ class Products{
             SELECT prodID, prodName, quantity, Price, Category, prodUrl, hoveredProdUrl, prodDesc
             FROM Products
         `;
-        db.query(query, (err, data) => {
+        connection.query(query, (err, data) => {
             if (err) throw err;
             res.json({
                 status: res.statusCode,
@@ -20,7 +20,7 @@ class Products{
             FROM Products 
             WHERE prodID = ${req.params.prodID}
         `
-        db.query(query, (err, result)=>{
+        connection.query(query, (err, result)=>{
             if (err) throw err
             res.json({
                 status: res.statusCode,
@@ -32,7 +32,7 @@ class Products{
         const query = `
             INSERT INTO Products SET ?
         `
-        db.query(query, [req.body], (err)=>{
+        connection.query(query, [req.body], (err)=>{
             if (err) throw err
             res.json({
                 status: res.statusCode,
@@ -44,7 +44,7 @@ class Products{
         const query = `
             DELETE FROM Products WHERE prodID = ${req.params.prodID}
         `
-        db.query(query, (err)=>{
+        connection.query(query, (err)=>{
             if (err) throw err
             res.json({
                 status: res.statusCode,
@@ -56,7 +56,7 @@ class Products{
         const query = `
             UPDATE Products SET ? WHERE prodID = ${req.params.prodID}
         `
-        db.query(query, [req.body], (err)=>{
+        connection.query(query, [req.body], (err)=>{
             if (err) throw err
             res.json({
                 status: res.statusCode,
