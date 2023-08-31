@@ -91,7 +91,7 @@ export default {
 .card {
   width: 300px;
   height: 420px;
-  background: #ffd166;
+  background: #FFC947;
   margin-bottom: 2rem;
   color: #073b4c;
   font-weight: 600;
