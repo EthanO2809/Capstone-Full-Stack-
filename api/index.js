@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   next();
 })
 
-routes.get("^/$|/CapStone - FullStack", (req, res) => {
+routes.get("^/$|/CapStone-Final-Fullstack", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./static/html/index.html"));
   }
 );

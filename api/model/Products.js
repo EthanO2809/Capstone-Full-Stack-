@@ -1,18 +1,18 @@
 const db = require('../config')
 
 class Products{
-    fetchProducts(req, res){
+    fetchProducts(req, res) {
         const query = `
             SELECT prodID, prodName, quantity, Price, Category, prodUrl, hoveredProdUrl, prodDesc
             FROM Products
-        `
+        `;
         db.query(query, (err, data) => {
             if (err) throw err;
             res.json({
-              status: res.statusCode,
-              results: data,
+                status: res.statusCode,
+                results: data,
             });
-          });
+        });
     }
     fetchProduct(req, res){
         const query = `
