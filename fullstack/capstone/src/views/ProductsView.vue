@@ -23,7 +23,7 @@
           :key="productItem.prodID"
         >
         <center>
-<div class="card"
+<!-- <div class="card"
 @mouseover="hoveredProduct = productItem"
             @mouseleave="hoveredProduct = null">
   <div class="card__image"><img
@@ -36,7 +36,19 @@
     <p>{{ productItem.prodDesc }}</p>
     <p><span>Price: R </span>{{ productItem.Price }}<span>,00 </span></p>
   </div>
-</div>
+</div> -->
+<div class="hero">
+      <img src="https://i.postimg.cc/pVDbrSFG/Screenshot-2023-08-31-084124.png" alt="" class="heroimg">
+      <h2 class="hero-text">Your Ultimate Destination for <br> Cutting-Edge Tech Solutions
+
+      </h2>
+    </div>
+      <button class="cta">
+    <router-link to="/products" class="text-decoration-none"><span class="hover-underline-animation"> Shop now </span></router-link>
+    <svg viewBox="0 0 46 16" height="20" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+        <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+    </svg>
+</button>
           </center>
         </div>
       </div>
@@ -88,144 +100,89 @@ export default {
   width: 16rem;
 }
 
-.card {
-  width: 300px;
-  height: 420px;
-  background: #FFC947;
-  margin-bottom: 2rem;
-  color: #073b4c;
-  font-weight: 600;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+.hero {
   position: relative;
-  transition: all .5s ease;
 }
 
-.card::before {
-  content: "NEW";
+.cta {
   position: absolute;
-  width: 75px;
-  height: 75px;
-  top: 35%;
-  right: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #ef476f;
-  color: aliceblue;
-  font-weight: 800;
-  transition: all .5s ease;
+  top: 80%;
+  left: 14%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: none;
 }
 
-.card__image {
-  width: initial;
-  height: 200px;
-  width: 270px;
-  border-radius: 8px;
-  background: rgb(6,214,160);
-  background: linear-gradient(163deg, #06d6a0 18%, rgba(17,138,178,1) 79%);
-  transition: all .5s ease;
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 2rem;
+  padding-right: 15px;
+  text-transform: uppercase;
 }
 
-.title {
-  font-weight: 800;
-  font-size: 1.4em;
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
 }
 
-.card__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-  gap: 10px;
+.cta:hover svg {
+  transform: translateX(0);
 }
 
-.card:hover {
-  border-top-left-radius: 35px;
-  box-shadow: 5px 5px 0px 0px #06d6a0, 10px 10px 0px 0px #118ab2, 15px 15px 0px 0px #06d6a0, 5px 5px 15px 5px rgba(0,0,0,0);
+.cta:active svg {
+  transform: scale(0.9);
 }
 
-.card:hover .card__image {
-  border-top-left-radius: 25px;
+.hover-underline-animation {
+  position: relative;
+  color: rgb(255, 255, 255);
+  padding-bottom: 20px;
 }
 
-.card:hover::before {
-  transform: scale(1.3) rotate(-30deg);
-}
-
-.view {
-  width: 7rem;
-  height: 2rem;
-  padding: 0.1rem;
-}
-
-button {
-  border-radius: 5px;
-}
-
-button {
-  width: 7rem !important;
-  text-align: center;
-  height: 34px;
-  gap: 12px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border: 3px solid rgb(134, 134, 134);
-  background-color: rgb(200, 200, 200);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
-}
-
-.view {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow path {
-  fill: rgb(19, 19, 19);
-}
-
-button:hover .arrow {
-  animation: slide-in-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.hover-overlay {
+.hover-underline-animation:after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 18px;
-  opacity: 1;
-  transition: opacity 0.3s;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
-.card .hover-overlay svg {
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#arrow-horizontal {
+  width: 3rem;
+  margin-bottom: 1rem;
   fill: white;
 }
 
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-8px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
+.heroimg {
+  position: relative;
+  border-radius: 1rem;
+  right: 30%;
+  object-fit: cover;
+  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
 }
 
-button:active {
-  transform: scale(0.97);
+.hero-content {
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  left: 32%;
+  position: absolute;
+  color: #fff;
+  font-size: 1rem; 
+  bottom: 50%;
 }
 
 .search {
