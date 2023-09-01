@@ -68,6 +68,7 @@ li{
     padding:10px 0;
     background-color:rgb(0, 0, 0) !important;
     color:black !important;
+    display: none;
   }
 
   .footer-social-icon{

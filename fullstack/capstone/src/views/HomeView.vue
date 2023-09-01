@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
     <div class="hero">
       <img src="https://i.postimg.cc/pVDbrSFG/Screenshot-2023-08-31-084124.png" alt="" class="heroimg">
       <h2 class="hero-text">Your Ultimate Destination for <br> Cutting-Edge Tech Solutions
@@ -77,17 +76,9 @@ export default {};
 <style scoped>
 
 .home {
-  background-color: #312e81;
-  height: 100%;
-  background-attachment: fixed;
-}
-.categories {
-  margin-top: 6.8rem;
-  color: gold;
-}
-.Information {
-  margin-top: 2.8rem;
-  color: gold;
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .card {
@@ -190,7 +181,9 @@ export default {};
   left: 14%;
   transform: translate(-50%, -50%);
   border: none;
+  color: rgb(251,202,73);
   background: none;
+  fill: rgb(251,202,73);
 }
 
 .cta span {
@@ -198,12 +191,16 @@ export default {};
   letter-spacing: 4px;
   font-size: 2rem;
   padding-right: 15px;
+  fill: rgb(251,202,73);
+  color: rgb(251,202,73);
   text-transform: uppercase;
 }
 
 .cta svg {
   transform: translateX(-8px);
   transition: all 0.3s ease;
+  color: rgb(251,202,73);
+  fill: rgb(251,202,73);
 }
 
 .cta:hover svg {
@@ -216,7 +213,7 @@ export default {};
 
 .hover-underline-animation {
   position: relative;
-  color: rgb(255, 255, 255);
+  color: #4ee4ff;
   padding-bottom: 20px;
 }
 
@@ -241,7 +238,7 @@ export default {};
 #arrow-horizontal {
   width: 3rem;
   margin-bottom: 1rem;
-  fill: white;
+  fill: rgb(251,202,73);
 }
 
 .heroimg {
@@ -260,8 +257,12 @@ export default {};
 .hero-text {
   left: 32%;
   position: absolute;
-  color: #fff;
+  color: rgb(251,202,73);
   font-size: 4rem; 
   bottom: 50%;
+}
+
+.row {
+  margin-right: 0;
 }
 </style>
