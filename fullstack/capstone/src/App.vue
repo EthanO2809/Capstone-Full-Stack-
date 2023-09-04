@@ -20,8 +20,13 @@ export default {
 <style>
 
 /* Your existing styles */
-#app {
+#app{
   text-align: center;
+  background-image: url("https://i.postimg.cc/XNwgnv9D/Nirvana-BG-2023-01-08-15-45-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
 }
 
 .footer {

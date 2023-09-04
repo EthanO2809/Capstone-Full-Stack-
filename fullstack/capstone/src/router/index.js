@@ -31,6 +31,11 @@ const routes = [
     path:'/viewmore/:prodID',
     name:"ViewMore",
     component: ()=> import('../views/MoreView.vue')
+  },
+  {
+    path:'/Login',
+    name:"Login",
+    component: ()=> import('../views/LoginView.vue')
   }
   
 

@@ -1,12 +1,15 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbarr">
-  <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid navbarr ">
     <a class="navbar-brand text-white" href="#"><img src="https://i.postimg.cc/nrZ260G3/14-removebg-preview.png" alt="" class="img-01"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
+        <li class="nav-item">
+          <router-link to="/Login">Login</router-link>
+        </li>
         <li class="nav-item">
           <router-link to="/">Home</router-link>
         </li>
@@ -32,9 +35,6 @@ export default {};
 </script>
 
 <style scoped>
-.bgs {
-  background-color: rgb(0, 0, 176);
-}
 
 .img-01 {
   width: 7.4rem;
@@ -47,11 +47,13 @@ a {
 }
 
 .navbarr {
-  background: #c31432;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: radial-gradient(64.51% 64.5% at 53.78% 51.32%, #1D0091 0%, #000 100%), radial-gradient(100% 100% at 50% 0%, #4400B2 0%, #000 96.93%), linear-gradient(117deg, rgba(66, 0, 255, 0.20) 35.25%, rgba(0, 0, 0, 0.00) 100.74%), #000;
   position: relative;
   font-size: 1.6rem;
+  margin-top: 0;
+  width: 100%;
+  opacity: 75%;
+  box-shadow: none !important;
 }
 
 .flex{

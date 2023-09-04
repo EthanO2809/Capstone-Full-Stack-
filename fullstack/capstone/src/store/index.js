@@ -98,6 +98,9 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
+    async login(context, payload){
+      
+    },
     
     async updateUser(context, payload) {
       try {
