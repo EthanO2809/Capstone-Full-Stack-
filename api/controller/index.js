@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 routes.get("/Users", (req, res) => {
   users.fetchUsers(req, res)
 });
-routes.get("/user/:id", (req, res) => {
+routes.get("/user/:UserID", (req, res) => {
   users.fetchUser(req, res)
 });
 routes.post("/login", bodyParser.json(), (req, res) => {
@@ -16,10 +16,10 @@ routes.post("/login", bodyParser.json(), (req, res) => {
 routes.post("/register", bodyParser.json(), (req, res) => {
   users.registerUser(req, res)
 });
-routes.patch("/user/:id", bodyParser.json(), (req, res) => {
+routes.patch("/user/:UserID", bodyParser.json(), (req, res) => {
   users.updateUser(req, res)
 });
-routes.delete("/user/:id", bodyParser.json(), (req, res) => {
+routes.delete("/user/:UserID", bodyParser.json(), (req, res) => {
   users.removeUser(req, res)
 });
 // =======
