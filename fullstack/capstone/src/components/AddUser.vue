@@ -1,0 +1,127 @@
+<template>
+  <div>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal2"
+    >
+      Add A User
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal2"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel2">Add A User</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <center>
+            <input
+              placeholder="Name"
+              type="text"
+              v-model="model.user.UserName "
+              required
+            />
+            <input
+              placeholder="Age"
+              type="number"
+              v-model="model.user.UserAge"
+              required
+            />
+            <input
+              placeholder="Password"
+              type="text"
+              v-model="model.user.UserPass"
+              required
+            />
+            <input
+              placeholder="Email"
+              type="email"
+              v-model="model.user.EmailAdd"
+              required
+            />
+            <input
+              placeholder="Profile Picture"
+              type="text"
+              v-model="model.user.UserUrl"
+              required
+            />
+          </center>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn" @click="registerUser">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      model: {
+        user: {
+            UserName: "",
+            UserAge: "",
+            UserPass:"",
+            UserUrl:"",
+            EmailAdd : ""
+        },
+      },
+    };
+  },
+  methods: {
+    registerUser() {
+      console.log("reached");
+      this.$store.dispatch("registerUser", this.model.user.UserID);
+      setTimeout(() => {
+        location.reload();
+      }, 500);
+    },
+  },
+};
+
+</script>
+
+<style scoped>
+.btn{
+  border: 1px solid black;
+  margin-bottom: 7px;
+}
+
+.btn:hover{
+color: rgb(126, 126, 126);
+}
+
+input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+</style>

@@ -18,18 +18,16 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody v-for="user in users" :key="user">
+      <tbody v-for="user in Users" :key="user">
         <tr v-if="user">
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.lastName }}</td>
+          <td>{{ user.UserName }}</td>
           <td>{{ user.userAge }}</td>
-          <td>{{ user.Gender }}</td>
-          <td>{{ user.userRole }}</td>
-          <td>{{ user.emailAdd }}</td>
+          <td>{{ user.EmailAdd }}</td>
+          <td>{{ user.UserPass }}</td>
           <td>
             <img
-              :src="user.userProfile"
-              :alt="user.firstName"
+              :src="user.UserUrl"
+              :alt="user.UserName"
               loading="lazy"
               class="img-fluid image"
             />

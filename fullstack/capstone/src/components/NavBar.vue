@@ -8,20 +8,20 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+          <router-link to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">AboutUs</a>
+          <router-link to="/about">AboutUs</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">ContactUs</a>
+          <router-link to="/contact">ContactUs</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Admin</a>
+          <router-link to="/admin">Admin</router-link>
         </li>
       </ul>
     </div>
-        <a class="nav-link text-white" href="/">ShopUs</a>
+        <a class="nav-link text-white" href="/products">ShopUs</a>
         <a class="nav-link text-white" href="/"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02"></a>
       </div>
 </nav>
@@ -39,6 +39,11 @@ export default {};
 .img-01 {
   width: 7.4rem;
   height: 7rem;
+}
+
+a {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 .navbarr {

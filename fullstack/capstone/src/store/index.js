@@ -4,7 +4,7 @@ const miniURL = "https://capstone-ethanlo.onrender.com/";
 
 export default createStore({
   state: {
-    users: null,
+    Users: null,
     user: null,
     products: null,
     product: null,
@@ -15,8 +15,8 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    setUsers(state, users) {
-      state.users = users;
+    setUsers(state, Users) {
+      state.Users = Users;
     },
     setSingleProduct(state, product){
       state.chosenProduct = product
