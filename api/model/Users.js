@@ -25,7 +25,7 @@ class Users {
       connection.query(query, (err, data) => {
       if (err) throw err;
       res.json({
-        status: res.statusCode,
+        status: res.statusCode, 
         results: data,
       });
     });
