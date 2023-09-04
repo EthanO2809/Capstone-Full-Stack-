@@ -8,22 +8,21 @@
     <table class="table table-bordered border-black text-center" >
       <thead>
         <tr>
+          <th>ID</th>
           <th>Name</th>
-          <th>Surname</th>
           <th>Age</th>
-          <th>Gender</th>
-          <th>Role</th>
           <th>Email Address</th>
+          <th>User Key</th>
           <th>Profile Image</th>
-          <th>Action</th>
         </tr>
       </thead>
-      <tbody v-for="user in Users" :key="user">
+      <tbody v-for="user in Users" :key="user.UserID">
         <tr v-if="user">
+          <td>{{ user.UserID }}</td>
           <td>{{ user.UserName }}</td>
-          <td>{{ user.userAge }}</td>
+          <td>{{ user.UserAge }}</td>
           <td>{{ user.EmailAdd }}</td>
-          <td>{{ user.UserPass }}</td>
+          <td>{{ user.Userpass }}</td>
           <td>
             <img
               :src="user.UserUrl"
@@ -71,7 +70,7 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>name</th>
+          <th>Name</th>
           <th>quantity</th>
           <th>price</th>
           <th>category</th>
@@ -135,7 +134,7 @@ export default {
   },
   computed: {
     users() {
-      return this.$store.state.users || [];
+      return this.$store.state.Users || [];
     },
     products() {
       return this.$store.state.products || [];
@@ -182,9 +181,9 @@ export default {
       this.sortBy = 'name'
       this.sort = this.sort === "asc" ? "desc" : "asc";
     },
-    deleteUser(userID) {
+    deleteUser(UserID) {
       if (confirm("Are you sure you want to delete this user?")) {
-        this.$store.dispatch("deleteUser", userID);
+        this.$store.dispatch("deleteUser", UserID);
         setTimeout(() => {
           location.reload();
         }, 500);

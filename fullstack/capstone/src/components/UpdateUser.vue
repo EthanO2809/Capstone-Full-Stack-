@@ -36,43 +36,25 @@
                   <input
                 placeholder="First Name"
                 type="text"
-                v-model="editingUser.firstName"
-                required
-              />
-              <input
-                placeholder="Last Name"
-                type="text"
-                v-model="editingUser.lastName"
+                v-model="editingUser.UserName"
                 required
               />
               <input
                 placeholder="Age"
                 type="number"
-                v-model="editingUser.userAge"
-                required
-              />
-              <input
-                placeholder="gender"
-                type="text"
-                v-model="editingUser.Gender"
-                required
-              />
-              <input
-                placeholder="Role"
-                type="text"
-                v-model="editingUser.userRole"
+                v-model="editingUser.UserAge"
                 required
               />
               <input
                 placeholder="Email"
                 type="text"
-                v-model="editingUser.emailAdd"
+                v-model="editingUser.EmailAdd"
                 required
               />
               <input
                 placeholder="product image"
                 type="text"
-                v-model="editingUser.userProfile"
+                v-model="editingUser.UserUrl"
                 required
               />
             </center>
@@ -102,17 +84,15 @@
   
   <script>
   export default {
-    props: ["user"],
+    props: ["User"],
     data() {
       return {
           editingUser:{
           user: {
-            firstName: "",
-            lastName: "",
-            userAge: null,
-            Gender: "",
-            emailAdd: "",
-            userProfile: "",
+            UserName: "",
+            UserAge: null,
+            EmailAdd: "",
+            UserUrl: "",
           },
         },
       };
@@ -126,7 +106,7 @@
       openEditModal(UserID) {
         this.editingUserID = UserID;
         this.editingUser = {
-          ...this.$store.state.users.find(
+          ...this.$store.state.Users.find(
             (user) => user.UserID === UserID
           ),
         };
