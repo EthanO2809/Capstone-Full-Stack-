@@ -1,4 +1,4 @@
-const db = require("../config");
+const {connection} = require('../config/index')
 const { hash, compare, hashSync } = require("bcrypt");
 const { createToken } = require("../middleware/AuthenticateUser");
 
@@ -6,9 +6,9 @@ class Users {
   fetchUsers(req, res) {
     const query = `
             SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, Userpass
-            FROM USERS
+            FROM Users
         `;
-    db.query(query, (err, data) => {
+    connection.query(query, (err, data) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
@@ -19,10 +19,10 @@ class Users {
   fetchUser(req, res) {
     const query = `
         SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, UserPass
-        FROM USERS
+        FROM Users
         WHERE UserID = ${req.params.UserID}
         `;
-    db.query(query, (err, data) => {
+      connection.query(query, (err, data) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
@@ -35,10 +35,10 @@ class Users {
     // query
     const query = `
       SELECT UserName, UserAge, EmailAdd, UserPass
-      FROM USERS
+      FROM Users
       WHERE EmailAdd = ?
     `;
-    db.query(query, [EmailAdd], async (err, result) => {
+    connection.query(query, [EmailAdd], async (err, result) => {
       if (err) throw err;
       if (!result?.length) {
         res.json({
@@ -82,9 +82,9 @@ class Users {
       UserPass: data.UserPass,
     };
     const query = `
-            INSERT INTO USERS SET ?
+            INSERT INTO Users SET ?
         `;
-    db.query(query, [data], (err) => {
+    connection.query(query, [data], (err) => {
       if (err) throw err;
       let token = createToken(user);
       // res.cookie("LegitUser", token, {
@@ -99,9 +99,9 @@ class Users {
   }
   removeUser(req, res) {
     const query = `
-            DELETE FROM USERS WHERE UserID = ${req.params.UserID}
+            DELETE FROM Users WHERE UserID = ${req.params.UserID}
         `;
-    db.query(query, (err) => {
+    connection.query(query, (err) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
@@ -111,9 +111,9 @@ class Users {
   }
   updateUser(req, res) {
     const query = `
-            UPDATE USERS SET ? WHERE UserID = ${req.params.UserID}
+            UPDATE Users SET ? WHERE UserID = ${req.params.UserID}
         `;
-    db.query(query, [req.body], (err) => {
+    connection.query(query, [req.body], (err) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
