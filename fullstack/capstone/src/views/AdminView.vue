@@ -8,12 +8,12 @@
     <table class="table table-bordered border-black text-center" >
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Email Address</th>
-          <th>User Key</th>
-          <th>Profile Image</th>
+          <th class="th-1">ID</th>
+          <th class="th-1">Name</th>
+          <th class="th-1">Age</th>
+          <th class="th-1">Email Address</th>
+          <th class="th-1">User Key</th>
+          <th class="th-1">Profile Image</th>
         </tr>
       </thead>
       <tbody v-for="user in Users" :key="user.UserID">
@@ -69,23 +69,23 @@
       <table class="table table-bordered border-black text-center">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>quantity</th>
-          <th>price</th>
-          <th>category</th>
-          <th>product image</th>
-          <th>Action</th>
+          <th class="th-2">ID</th>
+          <th class="th-2">Name</th>
+          <th class="th-2">quantity</th>
+          <th class="th-2">price</th>
+          <th class="th-2">category</th>
+          <th class="th-2">product image</th>
+          <th class="th-2">Action</th>
         </tr>
       </thead>
       <tbody v-for="product in filteredProducts" :key="product.prodID">
         <tr v-if="product">
-          <td>{{ product.prodID }}</td>
-          <td>{{ product.prodName }}</td>
-          <td>{{ product.quantity }}</td>
-          <td>R {{ product.Price }}</td>
-          <td>{{ product.Category }}</td>
-          <td>
+          <td class="td-2">{{ product.prodID }}</td>
+          <td class="td-2">{{ product.prodName }}</td>
+          <td class="td-2">{{ product.quantity }}</td>
+          <td class="td-2">R {{ product.Price }}</td>
+          <td class="td-2">{{ product.Category }}</td>
+          <td class="td-2">
             <img
               :src="product.prodUrl"
               :alt="product.prodName"
@@ -134,7 +134,7 @@ export default {
   },
   computed: {
     users() {
-      return this.$store.state.Users || [];
+      return this.$store.state.users || [];
     },
     products() {
       return this.$store.state.products || [];
@@ -194,6 +194,12 @@ export default {
 </script>
 
 <style scoped>
+.td-2 {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
 img {
   width: 7rem;
 }
