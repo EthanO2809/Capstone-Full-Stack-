@@ -36,7 +36,7 @@ class Users {
     const query = `
       SELECT UserName, UserAge, EmailAdd, UserPass, UserRole
       FROM Users
-      WHERE EmailAdd = ${EmailAdd}
+      WHERE EmailAdd = '${EmailAdd}'
     `;
     connection.query(query, [EmailAdd], async (err, result) => {
       if (err) throw err;
