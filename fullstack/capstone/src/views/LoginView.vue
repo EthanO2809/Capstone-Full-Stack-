@@ -24,7 +24,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$axios.post("", {
+        const response = await this.$store.dispatch("login", {
           email: this.email,
           password: this.password,
         });
@@ -50,9 +50,8 @@ export default {
 <style scoped>
 .login{
   color: white;
-  background: #c31432;
-  background: -webkit-linear-gradient(to right, #240b36, #c31432);
-  background: linear-gradient(to right, #240b36, #c31432);
+  padding-top: 14rem;
+  height: 100vh;
 }
 
 .emailinp {

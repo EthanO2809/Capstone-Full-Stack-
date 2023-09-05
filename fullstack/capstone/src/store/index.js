@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import Cookies from 'js-cookie'
 const miniURL = "https://capstone-ethanlo.onrender.com/";
 
 export default createStore({
@@ -100,7 +101,7 @@ export default createStore({
     },
       async login(context, payload) {
         try {
-          const res = await axios.post(`${api}login`, payload);
+          const res = await axios.post(`${miniURL}login`, payload);
           console.log("Res: ", res.data);
           const { msg, err, token, userData } = res.data;
           console.log(userData);
