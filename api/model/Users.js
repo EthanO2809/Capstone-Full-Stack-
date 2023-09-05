@@ -110,6 +110,10 @@ class Users {
     });
   }
   updateUser(req, res) {
+    const data = req.body
+    if(data.Userpass){
+      data.Userpass = hashSync(data.Userpass, 10)
+    }
     const query = `
             UPDATE Users SET ? WHERE UserID = ${req.params.UserID}
         `;
