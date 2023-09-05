@@ -5,7 +5,7 @@ const { createToken } = require("../middleware/AuthenticateUser");
 class Users {
   fetchUsers(req, res) {
     const query = `
-            SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, Userpass
+            SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, Userpass, UserRole
             FROM Users
         `;
     connection.query(query, (err, data) => {
@@ -18,7 +18,7 @@ class Users {
   }
   fetchUser(req, res) {
     const query = `
-        SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, UserPass
+        SELECT UserID, UserUrl, UserName, UserAge, EmailAdd, UserPass, UserRole
         FROM Users
         WHERE UserID = ${req.params.UserID}
         `;
@@ -34,9 +34,9 @@ class Users {
     const { EmailAdd, UserPass } = req.body;
     // query
     const query = `
-      SELECT UserName, UserAge, EmailAdd, UserPass
+      SELECT UserName, UserAge, EmailAdd, UserPass, UserRole
       FROM Users
-      WHERE EmailAdd = ?
+      WHERE EmailAdd = ${EmailAdd}
     `;
     connection.query(query, [EmailAdd], async (err, result) => {
       if (err) throw err;
