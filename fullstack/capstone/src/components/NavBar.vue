@@ -25,13 +25,15 @@
       </ul>
     </div>
         <a class="nav-link text-white" href="/products">ShopUs</a>
-        <a class="nav-link text-white" href="/"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02"></a>
+        <a class="nav-link text-white" id="openModal" href="#"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02"></a>
       </div>
 </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  
+};
 </script>
 
 <style scoped>
