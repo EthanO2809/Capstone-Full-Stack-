@@ -91,6 +91,7 @@ window.addEventListener('scroll', handleScrollAnimation);
 .prods {
   height: 100%;
   width: 100%;
+  padding-bottom: 24rem;
 }
 
 .bck {

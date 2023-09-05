@@ -261,8 +261,10 @@ export default {};
   font-weight: 600;
   position: absolute;
   color: rgb(255, 255, 255);
-  font-size: 4rem; 
-  bottom: 30%;
+  font-size: 4.3rem; 
+  bottom: 20%;
+  opacity: 90%;
+  line-height: 4.9rem;
 }
 
 .row {

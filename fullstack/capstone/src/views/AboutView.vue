@@ -23,6 +23,8 @@ export default {
 
 .about {
   background-color: #312e81 !important;
+  padding-top: 10rem;
+  padding-bottom: 4rem;
 }
 
 .h-01 {
