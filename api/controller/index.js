@@ -3,7 +3,53 @@ const { users, products } = require("../model");
 const { verifyAToken } = require("../middleware/AuthenticateUser");
 const routes = express.Router();
 const bodyParser = require("body-parser");
+const { Cart } = require("../model/cart");
 
+const cart = new Cart();
+
+routes.post("/cart/add/:prodID", (req,res) => {
+  const productID = req.params.prodID;
+})
+
+products.fetchProduct(req, res);
+if (product) {
+  // If the product exists, add it to the cart
+  cart.addItem(product);
+  res.json({
+    status: res.statusCode,
+    msg: "Product added to the cart successfully",
+  });
+} else {
+  res.status(404).json({
+    status: 404,
+    msg: "Product not found",
+  });
+}
+routes.get("/cart", (req, res) => {
+  const cartContents = cart.getItems();
+  res.json({
+    status: res.statusCode,
+    cart: cartContents,
+    total: cart.calculateTotal(),
+  });
+});
+routes.delete("/cart/remove/:prodID", (req, res) => {
+  const productId = req.params.prodID;
+ 
+  cart.removeItem(productId);
+  res.json({
+    status: res.statusCode,
+    msg: "Product removed from the cart successfully",
+  });
+});
+routes.get("/cart", (req, res) => {
+  const cartContents = cart.getItems();
+  res.json({
+    status: res.statusCode,
+    cart: cartContents,
+    total: cart.calculateTotal(),
+  });
+});
 routes.get("/Users", (req, res) => {
   users.fetchUsers(req, res)
 });
