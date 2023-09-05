@@ -47,12 +47,13 @@ a {
 }
 
 .navbarr {
-  background: radial-gradient(64.51% 64.5% at 53.78% 51.32%, #1D0091 0%, #000 100%), radial-gradient(100% 100% at 50% 0%, #4400B2 0%, #000 96.93%), linear-gradient(117deg, rgba(66, 0, 255, 0.20) 35.25%, rgba(0, 0, 0, 0.00) 100.74%), #000;
+  background-color: rgba(47, 47, 47, 0);
   position: relative;
   font-size: 1.6rem;
   margin-top: 0;
+  font-weight: 700;
   width: 100%;
-  opacity: 75%;
+  opacity: 100% !important;
   box-shadow: none !important;
 }
 

@@ -76,9 +76,9 @@ export default {};
 <style scoped>
 
 .home {
-  background: #c31432;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: #c31432;  fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #240b36, #c31432);  Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #240b36, #c31432); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .card {
@@ -173,17 +173,19 @@ export default {};
 
 .hero {
   position: relative;
+  padding-top: 12rem;
 }
 
 .cta {
   position: absolute;
-  top: 80%;
+  top: 82%;
   left: 14%;
+  font-weight: 600;
   transform: translate(-50%, -50%);
   border: none;
-  color: rgb(251,202,73);
+  color: rgb(0, 0, 255);
   background: none;
-  fill: rgb(251,202,73);
+  fill: rgb(0, 26, 255);
 }
 
 .cta span {
@@ -191,16 +193,16 @@ export default {};
   letter-spacing: 4px;
   font-size: 2rem;
   padding-right: 15px;
-  fill: rgb(251,202,73);
-  color: rgb(251,202,73);
+  fill: rgb(253, 253, 253);
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
 }
 
 .cta svg {
   transform: translateX(-8px);
   transition: all 0.3s ease;
-  color: rgb(251,202,73);
-  fill: rgb(251,202,73);
+  color: rgb(0, 0, 0);
+  fill: rgb(0, 0, 0);
 }
 
 .cta:hover svg {
@@ -238,7 +240,7 @@ export default {};
 #arrow-horizontal {
   width: 3rem;
   margin-bottom: 1rem;
-  fill: rgb(251,202,73);
+  fill: rgb(255, 255, 255);
 }
 
 .heroimg {
@@ -256,10 +258,11 @@ export default {};
 
 .hero-text {
   left: 32%;
+  font-weight: 600;
   position: absolute;
-  color: rgb(251,202,73);
+  color: rgb(255, 255, 255);
   font-size: 4rem; 
-  bottom: 50%;
+  bottom: 30%;
 }
 
 .row {

@@ -66,9 +66,9 @@ li{
 
 .footer {
     padding:10px 0;
-    background-color:rgb(0, 0, 0) !important;
+    background: radial-gradient(64.51% 64.5% at 53.78% 51.32%, #1D0091 0%, #000 100%), radial-gradient(100% 100% at 50% 0%, #4400B2 0%, #000 96.93%), linear-gradient(117deg, rgba(66, 0, 255, 0.20) 35.25%, rgba(0, 0, 0, 0.00) 100.74%), #000;
+    opacity: 75%;
     color:black !important;
-    display: none;
   }
 
   .footer-social-icon{

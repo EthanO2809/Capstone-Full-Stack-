@@ -1,10 +1,8 @@
 <template>
   <div class="prods">
-<!-- <div class="back">
-</div> -->
     
     <div class="container">
-      <!-- <img src="" alt=""> -->
+
       <h2 class="class-display2 products mb-5 text-white">
 Welcome to our cutting-edge tech products page, where innovation meets your needs!</h2>
       <div class="hero"
