@@ -43,7 +43,7 @@ class Users {
       if (!result?.length) {
         res.json({
           status: res.statusCode,
-          msg: "You are providing the wrong email",
+          msg: "You are providing the wrong email or password",
         });
       } else {
         compare(UserPass, result[0].UserPass, (cerr, cresult) => {
