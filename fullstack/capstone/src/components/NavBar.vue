@@ -49,10 +49,12 @@ a {
 }
 
 .navbarr {
-  background-color: rgba(47, 47, 47, 0);
+   backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0);
   position: relative;
   font-size: 1.6rem;
-  margin-top: 0;
+  margin-top: 0px;
+  padding-top: 0px;
   font-weight: 700;
   width: 100%;
   opacity: 100% !important;

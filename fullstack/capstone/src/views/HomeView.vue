@@ -2,6 +2,7 @@
   <div class="home">
     <div class="hero">
       <img src="https://i.postimg.cc/pVDbrSFG/Screenshot-2023-08-31-084124.png" alt="" class="heroimg">
+      <img src="https://i.postimg.cc/4nkv4ZRr/Screenshot-2023-09-06-095109-removebg-preview.png" alt="" class="img-ast">
       <h2 class="hero-text">Your Ultimate Destination for <br> Cutting-Edge Tech Solutions
 
       </h2>
@@ -17,11 +18,11 @@
       <h2 class="h-02">Shop By Category</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center gap-6">
         <div class="col">
-        <div class="card">
+        <div class="card" @click="redirectToPCAndMonitorProducts">
 <div class="card-img"><img src="https://i.postimg.cc/cCMB2yz5/Screenshot-2023-08-30-110650.png" alt="" class="img-01"></div>
   <div class="card-info">
     <div class="card-text">
-      <p class="text-title">PC&Monitor</p>
+      <p class="text-title"><router-link :to="{ name: 'FilteredProducts', params: { category: 'PC&Monitor' } }">PC&Monitor Products</router-link></p>
       <p class="text-subtitle">Category</p>
     </div>
     <div class="card-icon">
@@ -71,15 +72,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    navigateToFilteredProducts() {
+      this.$router.push({ name: 'FilteredProducts', params: { category: 'PC&Monitor' } });
+    }
+  }
+};
 </script>
 <style scoped>
-
-.home {
-  /* background: #c31432;  fallback for old browsers */
-  /* background: -webkit-linear-gradient(to right, #240b36, #c31432);  Chrome 10-25, Safari 5.1-6 */
-  /* background: linear-gradient(to right, #240b36, #c31432); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .card {
   margin-bottom: 4rem !important;
@@ -174,6 +175,7 @@ export default {};
 .hero {
   position: relative;
   padding-top: 12rem;
+  width: 100%;
 }
 
 .cta {
@@ -246,7 +248,7 @@ export default {};
 .heroimg {
   position: relative;
   border-radius: 1rem;
-  right: 30%;
+  right: 32%;
   object-fit: cover;
   clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
 }
@@ -257,7 +259,7 @@ export default {};
 }
 
 .hero-text {
-  left: 32%;
+  left: 29%;
   font-weight: 600;
   position: absolute;
   color: rgb(255, 255, 255);
@@ -269,5 +271,11 @@ export default {};
 
 .row {
   margin-right: 0;
+}
+
+.img-ast {
+  position: absolute;
+  right: 16%;
+  top: 28%;
 }
 </style>

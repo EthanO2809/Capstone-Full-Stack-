@@ -4,11 +4,11 @@
     <div class="container">
 
       <h2 class="class-display2 products mb-5 text-white">
-Welcome to our cutting-edge tech products page, where innovation meets your needs!</h2>
+    Welcome to our cutting-edge tech products page, where innovation meets your needs!</h2>
       <div class="hero"
               @mouseover="hoveredProduct = productItem"
               @mouseleave="hoveredProduct = null" v-if="products">
-        <div v-for="productItem in products" :key="productItem.prodID"  class="product-card">
+        <div v-for="productItem in filteredProducts" :key="productItem.prodID"  class="product-card">
           <center>
               <img
                 :src="
@@ -47,6 +47,12 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
+    },
+    category() {
+      return this.$route.params.category; // Get the category from the route parameter
+    },
+    filteredProducts() {
+      return this.products.filter(product => product.category === this.category);
     },
   },
   methods: {

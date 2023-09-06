@@ -5,7 +5,7 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 
-const app = Vue.createApp({});
+const app = createApp(App);
 
 app.component('cart-modal', {
     template: `
@@ -31,6 +31,9 @@ app.component('cart-modal', {
     },
 });
 
+// Use Vue Router and Vuex on the same app instance
+app.use(store);
+app.use(router);
+
 app.mount('#app');
 
-createApp(App).use(store).use(router).mount('#app')
