@@ -38,11 +38,6 @@ const routes = [
     name:"Login",
     component: ()=> import('../views/LoginView.vue')
   },
-  {
-    path: '/products/:category',
-    name: 'FilteredProducts',
-    component: () => import('../views/FilteredProducts.vue'),
-  },
 ]
 
 const router = createRouter({

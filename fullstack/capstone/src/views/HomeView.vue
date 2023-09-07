@@ -18,11 +18,11 @@
       <h2 class="h-02">Shop By Category</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center gap-6">
         <div class="col">
-        <div class="card" @click="redirectToPCAndMonitorProducts">
+        <div class="card">
 <div class="card-img"><img src="https://i.postimg.cc/cCMB2yz5/Screenshot-2023-08-30-110650.png" alt="" class="img-01"></div>
   <div class="card-info">
     <div class="card-text">
-      <p class="text-title"><router-link :to="{ name: 'FilteredProducts', params: { category: 'PC&Monitor' } }">PC&Monitor Products</router-link></p>
+      <p class="text-title">PC&Monitor</p>
       <p class="text-subtitle">Category</p>
     </div>
     <div class="card-icon">
@@ -72,13 +72,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    navigateToFilteredProducts() {
-      this.$router.push({ name: 'FilteredProducts', params: { category: 'PC&Monitor' } });
-    }
-  }
-};
+export default {};
 </script>
 <style scoped>
 
@@ -160,7 +154,6 @@ export default {
   font-size: 1.5rem;
 }
 
-/*Hover*/
 .card:hover {
   box-shadow: rgb(255, 255, 255) 0px 2px 16px 8px;
   transform: scale(1.2);
