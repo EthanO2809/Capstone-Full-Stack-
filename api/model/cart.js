@@ -98,6 +98,4 @@ addToCart(1, 3); // Add 3 units of product with ID 1 to the cart
 // Remove an item from the cart
 removeFromCart(1); // Remove product with ID 1 from the cart
 
-module.exports = { 
-  Cart 
-};
+module.exports = Cart;
