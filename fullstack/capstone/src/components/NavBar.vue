@@ -25,24 +25,14 @@
       </ul>
     </div>
         <a class="nav-link text-white" href="/products">ShopUs</a>
-        <a class="nav-link text-white" href="#"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02" @click="showCartModal = !showCartModal"></a>
+        <router-link to="/cart"><img src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png" alt="" class="img-02"></router-link>
       </div>
-      <CartModal v-if="showCartModal" @close="showCartModal = false" />
 </nav>
 </template>
 
 <script>
-import CartModal from "./CartModal.vue"; // Update the path to your CartModal.vue file
-
 export default {
-  components: {
-    CartModal,
-  },
-  data() {
-    return {
-      showCartModal: false,
-    };
-  },
+  
 };
 </script>
 
@@ -59,7 +49,7 @@ a {
 }
 
 .navbarr {
-  backdrop-filter: blur(8px);
+   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0);
   position: relative;
   font-size: 1.6rem;

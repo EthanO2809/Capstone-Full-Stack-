@@ -9,12 +9,13 @@ export default createStore({
     user: null,
     products: null,
     product: null,
+    cart: [],
+    totalPrice: 0,
     spinner: null,
     token: null,
     msg: null,
     chosenProduct: null
   },
-  getters: {},
   mutations: {
     setUsers(state, Users) {
       state.Users = Users;
@@ -32,6 +33,23 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
+    addToCart(state, productItem) {
+   
+      const existingProduct = state.cart.find((item) => item.prodID === productItem.prodID);
+      if (existingProduct) {
+      
+        existingProduct.quantity++;
+      } else {
+      
+        state.cart.push({ ...productItem, quantity: 1 });
+      }
+    },
+    REMOVE_FROM_CART(state, prodID) {
+      const itemIndex = state.cart.findIndex(item => item.prodID === prodID);
+      if (itemIndex !== -1) {
+        state.cart.splice(itemIndex, 1);
+      }
+    },
     setSpinner(state, spinner) {
       state.spinner = value;
     },
@@ -43,6 +61,12 @@ export default createStore({
     },
   },
   actions: {
+    addToCart({ commit }, productItem) {
+      commit("addToCart", productItem);
+    },
+    removeFromCart({ commit }, prodID) {
+      commit('REMOVE_FROM_CART', prodID);
+    },
     async fetchUsers(context) {
       try {
         const { data } = await axios.get(`${miniURL}Users`);
@@ -216,6 +240,11 @@ export default createStore({
       } catch (e) {
         context.commit("setMsg", "an error occured");
       }
+    },
+    getters: {
+      totalCartPrice(state) {
+        return state.cart.reduce((total, item) => total + item.Price * item.quantity, 0);
+      },
     },
   modules: {},
 });
