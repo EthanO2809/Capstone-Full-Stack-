@@ -1,3 +1,5 @@
+const {connection} = require('../config/index')
+
 class Cart {
     constructor() {
       this.items = [];
@@ -29,5 +31,7 @@ class Cart {
     }
   }
   
-  module.exports = Cart;
+  module.exports = {
+    Cart 
+  };
   
