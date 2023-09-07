@@ -1,34 +1,29 @@
 const express = require("express");
-const { users, products, cart } = require("../model");
+const { users, products} = require("../model");
 const { verifyAToken } = require("../middleware/AuthenticateUser");
 const routes = express.Router();
 const bodyParser = require("body-parser");
+const cart = require("../model/cart");
 
-routes.post("/add_to_cart", bodyParser.json(), (req, res) => {
-  // Ensure that the user is authenticated before allowing cart actions
-  // You can use the 'verifyAToken' middleware for this purpose
+routes.post('/add_to_cart', bodyParser.json(), (req, res) => {
   verifyAToken(req, res, () => {
-    const { product_id, quantity } = req.body;
-    cart.addItem(product_id, quantity);
-    res.json({ status: res.statusCode, message: "Item added to cart successfully" });
-  });
-}); 
-
-routes.delete("/remove_from_cart/:product_id", (req, res) => {
-  // Ensure that the user is authenticated before allowing cart actions
-  // You can use the 'verifyAToken' middleware for this purpose
-  verifyAToken(req, res, () => {
-    const { product_id } = req.params;
-    cart.removeItem(product_id);
-    res.json({ status: res.statusCode, message: "Item removed from cart successfully" });
+    const { prodID, quantity } = req.body;
+    cart.addItem(prodID, quantity);
+    res.json({ status: res.statusCode, message: 'Item added to cart successfully' });
   });
 });
 
-routes.get("/view_cart", (req, res) => {
-  // Ensure that the user is authenticated before allowing cart actions
-  // You can use the 'verifyAToken' middleware for this purpose
+routes.delete('/remove_from_cart/:prodID', (req, res) => {
   verifyAToken(req, res, () => {
-    const cartItems = cart.getItems(); // Implement a method to retrieve cart items from your 'cart' module
+    const { prodID } = req.params;
+    cart.removeItem(prodID);
+    res.json({ status: res.statusCode, message: 'Item removed from cart successfully' });
+  });
+});
+
+routes.get('/view_cart', (req, res) => {
+  verifyAToken(req, res, () => {
+    const cartItems = cart.getItems();
     res.json({ status: res.statusCode, cart: cartItems });
   });
 });
