@@ -87,10 +87,10 @@
       </div>
     </div>
   </template>
-  
+
 <script>
 export default {
-  props: ["user"],
+     props: ["user"],
   data() {
     return {
       editingUser: {
@@ -111,7 +111,7 @@ export default {
   methods: {
     openEditModal(UserID) {
       this.editingUser = {
-        ...this.$store.state.users.find((user) => user.UserID === UserID),
+        ...this.$store.state.Users.find((user) => user.UserID === UserID),
       };
     },
     updateProduct(UserID) {
@@ -133,25 +133,3 @@ export default {
   },
 };
 </script>
-
-  
-  <style scoped>
-  .btn{
-    border: 1px solid black;
-    margin-bottom: 7px;
-    background-color: white;
-    color: black;
-    width: max-content;
-  }
-  
-  .btn:hover{
-  color: rgb(126, 126, 126);
-  }
-  
-  input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 7px;
-  }
-  </style>

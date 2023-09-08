@@ -1,33 +1,54 @@
 <template>
-  <div class="login">
+  <div class="register">
     <div class="hero">
-    <h2>Login</h2>
-    <form @submit.prevent="login">
-      <label class="lblemail">Email:</label><br />
-      <input v-model="email" type="email" class="emailinp" required /><br />
-      <label class="lblpass">Password:</label><br />
-      <input
-        v-model="password"
-        type="password"
-        class="passinp"
-        required
-      /><br />
-      <div class="btndiv">
-      <button class="btn" type="submit">
-        <strong>LOGIN</strong>
-        <div id="container-stars">
-          <div id="stars"></div>
-        </div>
+      <h2>Register</h2>
+      <form @submit.prevent="register">
+        <label class="lblname" for="username">Username</label><br />
+        <input
+          type="text"
+          id="username"
+          v-model="userData.UserName"
+          required
+        /><br />
+        <label class="lblemail">Email:</label><br />
+        <input
+          v-model="userData.emailAdd"
+          type="email"
+          class="emailinp"
+          required
+        /><br />
+        <label class="lblpass">Password:</label><br />
+        <input
+          v-model="userData.UserPass"
+          type="password"
+          class="passinp"
+          required
+        />
+        <br />
+        <label class="lblage">Age:</label><br />
+        <input
+          v-model="userData.UserAge"
+          type="password"
+          class="passinp"
+          required
+        />
+        <br />
+        <div class="btndiv">
+          <button class="btn" @click="registerUser()">
+            <strong>Register</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
 
-        <div id="glow">
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div></button
-      >
-      </div>
-      <br />
-    </form>
-    <p>{{ loginMessage }}</p>
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </button>
+        </div>
+        <br />
+      </form>
+      <p>{{ registrationError }}</p>
     </div>
     <img
       src="https://i.postimg.cc/YqMTskx0/astronaut-aesthetic-fishing-in-space-kc3tppv9wsqb7t48-removebg-preview.png"
@@ -41,46 +62,38 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      loginMessage: "",
+      userData: {
+        UserName: "",
+        EmailAdd: "",
+        UserPass: "",
+        UserAge:"",
+      },
+      registrationError: null,
     };
   },
   methods: {
-    async login() {
-      try {
-        const response = await this.$store.dispatch("login", {
-          email: this.email,
-          password: this.password,
-        });
-
-        if (response.data.success) {
-          // Login successful, update state or perform necessary actions
-          this.$store.commit("setUser", response.data.user);
-          this.$router.push("/dashboard"); // Redirect to a protected route
-        } else {
-          // Login failed, display error message
-          this.loginMessage = "Invalid credentials. Please try again.";
-        }
-      } catch (error) {
-        // Handle network or server errors
-        console.error("Login error:", error);
-        this.loginMessage = "An error occurred. Please try again later.";
-      }
+    async registerUser(payload) {
+      this.registrationError = null;
+        context.dispatch("registerUser")
     },
   },
 };
 </script>
 
 <style scoped>
+.lblname {
+  padding-top: 1rem;
+  font-size: 24px;
+}
+
 .lblemail {
-  padding-top: 2.4rem;
-  font-size: 30px;
+  padding-top: 1rem;
+  font-size: 24px;
 }
 
 .lblpass {
-  padding-top: 2rem;
-  font-size: 30px;
+  padding-top: 1rem;
+  font-size: 24px;
 }
 
 .img-ast {
@@ -89,8 +102,8 @@ export default {
   top: 16%;
 }
 
-.login {
-  font-family: 'Arya', sans-serif;
+.register {
+  font-family: "Arya", sans-serif;
   position: relative;
   color: white;
   padding-top: 12rem;
@@ -100,16 +113,24 @@ export default {
 .emailinp {
   text-align: center;
   font-weight: 800;
-  width: 24rem;
-  height: 3rem;
+  width: 20rem;
+  height: 2rem;
+  border-radius: 16px;
+}
+
+#username {
+  text-align: center;
+  font-weight: 800;
+  width: 20rem;
+  height: 2rem;
   border-radius: 16px;
 }
 
 .passinp {
   text-align: center;
   font-weight: 600;
-  width: 24rem;
-  height: 3rem;
+  width: 20rem;
+  height: 2rem;
   border-radius: 16px;
 }
 

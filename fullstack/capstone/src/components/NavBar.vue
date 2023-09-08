@@ -8,6 +8,9 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
         <li class="nav-item">
+          <router-link to="/Register">Register</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/Login">Login</router-link>
         </li>
         <li class="nav-item">
@@ -49,7 +52,7 @@ a {
 }
 
 .navbarr {
-   backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0);
   position: relative;
   font-size: 1.6rem;
@@ -83,6 +86,7 @@ li{
 .nav-item {
   color: #e1e1e1;
   font-family: inherit;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   position: relative;

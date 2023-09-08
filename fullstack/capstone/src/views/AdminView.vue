@@ -1,28 +1,28 @@
 <template>
   <div>
    
-    <h1>Users Table</h1>
+    <h1 class="usetb text-white">Users Table</h1>
     <AddUser />
     <center>
       <div class="table-responsive">
-    <table class="table table-bordered border-black text-center" >
+    <table class="table2 table-bordered text-center" >
       <thead>
         <tr>
           <th class="th-1">ID</th>
           <th class="th-1">Name</th>
           <th class="th-1">Age</th>
           <th class="th-1">Email Address</th>
-          <th class="th-1">User Key</th>
+          <th class="th-1">User Role</th>
           <th class="th-1">Profile Image</th>
         </tr>
       </thead>
-      <tbody v-for="user in Users" :key="user.UserID">
+      <tbody v-for="user in users" :key="user.UserID">
         <tr v-if="user">
           <td>{{ user.UserID }}</td>
           <td>{{ user.UserName }}</td>
           <td>{{ user.UserAge }}</td>
           <td>{{ user.EmailAdd }}</td>
-          <td>{{ user.Userpass }}</td>
+          <td>{{ user.UserRole }}</td>
           <td>
             <img
               :src="user.UserUrl"
@@ -37,6 +37,7 @@
           </td>
         </tr>
         <tr v-else>
+          user data is undefined
           <Spinner />
         </tr>
       </tbody>
@@ -62,11 +63,11 @@
       Filter by: {{ sort === "asc" ? "ascending" : "descending " }}
     </button>
   </div>
-    <h1>Products Table</h1>
+    <h1 class="text-white">Products Table</h1>
     <AddProducts />
     <center>
       <div class="table-responsive">
-      <table class="table table-bordered border-black text-center">
+      <table class="table1 table-bordered border-black text-center">
       <thead>
         <tr>
           <th class="th-2">ID</th>
@@ -163,7 +164,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('fetchProducts');
-    this.$store.dispatch("fetchUsers");
+    this.$store.dispatch('fetchUsers');
   },
   methods: {
     remveProduct(prodID) {
@@ -194,6 +195,23 @@ export default {
 </script>
 
 <style scoped>
+.image {
+  width: 6rem;
+  fill: white !important;
+}
+
+.th-1{
+  font-size: 1.4rem;
+}
+
+.th-2{
+  font-size: 1.4rem;
+}
+
+.usetb {
+  padding-top: 10rem;
+}
+
 .td-2 {
   font-weight: 600;
   font-style: italic;
@@ -233,9 +251,19 @@ color: rgb(126, 126, 126);
 }
 
 
-table {
-  border: 1px solid black;
+.table1 {
+  border: 2px solid rgb(255, 255, 255) !important;
+  color: white;
   width: 90%;
+  backdrop-filter: blur(8px) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.table2 {
+  border: 2px solid rgb(255, 255, 255) !important;
+  color: white;
+  width: 90%;
+  backdrop-filter: blur(8px) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .dropdown{
@@ -244,4 +272,4 @@ table {
 .dropdown1{
   float: right;
 }
-</style>
+</style>  

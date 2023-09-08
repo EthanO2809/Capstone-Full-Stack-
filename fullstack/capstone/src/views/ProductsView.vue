@@ -2,7 +2,8 @@
   <div class="prods">
     <div class="container">
       <h2 class="class-display2 products mb-5 text-white">
-        Welcome to our cutting-edge tech products page, where innovation meets your needs!
+        Welcome to our cutting-edge tech products page, where innovation meets
+        your needs!
       </h2>
       <div
         class="hero"
@@ -10,7 +11,11 @@
         @mouseleave="hoveredProduct = null"
         v-if="products"
       >
-        <div v-for="productItem in products" :key="productItem.prodID" class="product-card">
+        <div
+          v-for="productItem in products"
+          :key="productItem.prodID"
+          class="product-card"
+        >
           <div class="centered">
             <img
               :src="
@@ -26,7 +31,25 @@
             <h4 class="hero-text3">
               <span>R</span> {{ productItem.Price }} <span>,00</span>
             </h4>
-             <button @click="addToCart(productItem)">Add to Cart</button>
+            <button @click="addToCart(productItem)">
+              <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <span>Send to Cart</span>
+            </button>
           </div>
         </div>
       </div>
@@ -50,7 +73,7 @@ export default {
     },
   },
   methods: {
-   addToCart(productItem) {
+    addToCart(productItem) {
       this.$store.dispatch("addToCart", productItem);
     },
   },
@@ -60,28 +83,28 @@ export default {
   data() {
     return {
       hoveredProduct: null,
-    }
+    };
   },
 };
 
 function handleScrollAnimation() {
-  const productCards = document.querySelectorAll('.product-card');
+  const productCards = document.querySelectorAll(".product-card");
 
   productCards.forEach((card) => {
     const cardTop = card.getBoundingClientRect().top;
     const cardBottom = card.getBoundingClientRect().bottom;
 
     if (cardTop < window.innerHeight && cardBottom >= 0) {
-      card.classList.add('in-view');
+      card.classList.add("in-view");
     } else {
-      card.classList.remove('in-view');
+      card.classList.remove("in-view");
     }
   });
 }
 
-window.addEventListener('load', handleScrollAnimation);
+window.addEventListener("load", handleScrollAnimation);
 
-window.addEventListener('scroll', handleScrollAnimation);
+window.addEventListener("scroll", handleScrollAnimation);
 </script>
 
 <style scoped>
@@ -189,9 +212,8 @@ window.addEventListener('scroll', handleScrollAnimation);
   justify-content: center;
   align-items: center;
 }
-.row{
-  margin-right:  0;
-
+.row {
+  margin-right: 0;
 }
 
 .products {
@@ -199,7 +221,7 @@ window.addEventListener('scroll', handleScrollAnimation);
   padding-top: 18rem;
   left: 9%;
   margin: 0;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   width: 80%;
   font-size: 4.8rem !important;
   font-weight: 500;
@@ -209,7 +231,64 @@ window.addEventListener('scroll', handleScrollAnimation);
   scale: none;
   opacity: 1;
   transform: translate(0px, 0px);
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
-@import url('https://fonts.cdnfonts.com/css/sf-mono');
+button {
+  font-family: inherit;
+  position: absolute;
+  height: 3rem;
+  width: 11.6rem;
+  bottom: 20%;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(3.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(8em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.2em);
+  }
+}
+
+@import url("https://fonts.cdnfonts.com/css/sf-mono");
 </style>

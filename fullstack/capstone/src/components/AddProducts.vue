@@ -85,8 +85,8 @@ export default {
         product: {
           prodName: "",
           quantity: "",
-          amount: "",
-          category: "",
+          Price: "",
+          Category: "",
           prodUrl: "",
         },
       },
@@ -95,7 +95,7 @@ export default {
   methods: {
     addProduct() {
       console.log("reached");
-      this.$store.dispatch("addProduct", this.model.product);
+      this.$store.dispatch("addProduct", this.model.products);
       setTimeout(() => {
         location.reload();
       }, 500);
@@ -107,13 +107,17 @@ export default {
 
 <style scoped>
 .btn{
-  border: 1px solid black;
+  border: 1px solid #000000;
   margin-bottom: 7px;
+  color: white;
 }
 
 .btn:hover{
-color: rgb(126, 126, 126);
+color: rgb(0, 0, 0);
+font-weight: 700;
+background-color: white;
 }
+
 input{
   display: flex;
   justify-content: center;
