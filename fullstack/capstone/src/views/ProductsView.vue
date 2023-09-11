@@ -5,14 +5,17 @@
         Welcome to our cutting-edge tech products page, where innovation meets
         your needs!
       </h2>
-      <div
-        class="hero"
-        @mouseover="hoveredProduct = productItem"
-        @mouseleave="hoveredProduct = null"
-        v-if="products"
-      >
+       <div class="filter">
+    <label for="category-filter text-white">Filter by Category:</label>
+    <select v-model="selectedCategory" id="category-filter">
+      <option value="">All Categories</option>
+      
+      <option v-for="category in uniqueCategories" :key="category">{{ category }}</option>
+    </select>
+  </div>
+       <div class="hero" @mouseover="hoveredProduct = productItem" @mouseleave="hoveredProduct = null" v-if="filteredProducts">
         <div
-          v-for="productItem in products"
+          v-for="productItem in filteredProducts"
           :key="productItem.prodID"
           class="product-card"
         >
@@ -28,6 +31,7 @@
             />
             <h2 class="hero-text">{{ productItem.prodName }}</h2>
             <h3 class="hero-text2">{{ productItem.prodDesc }}</h3>
+            <h3 class="hero-text4">{{ productItem.Category }}</h3>
             <h4 class="hero-text3">
               <span>R</span> {{ productItem.Price }} <span>,00</span>
             </h4>
@@ -69,20 +73,38 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products;
-    },
+    return this.$store.state.products || []; // Default to an empty array if products is null or undefined
   },
+
+uniqueCategories() {
+    if (!this.products) {
+      return []; // Return an empty array if products is null or undefined
+    }
+
+    return [...new Set(this.products.map(product => product.Category))];
+  },
+
+    filteredProducts() {
+    if (!this.selectedCategory) {
+      return this.products; // No category selected, return all products
+    } else {
+      // Filter products by selected category
+      return this.products.filter(product => product.Category === this.selectedCategory);
+    }
+  },
+},
   methods: {
     addToCart(productItem) {
       this.$store.dispatch("addToCart", productItem);
     },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+   this.$store.dispatch("fetchProducts")
   },
   data() {
     return {
       hoveredProduct: null,
+      selectedCategory: "",
     };
   },
 };
@@ -139,7 +161,8 @@ window.addEventListener("scroll", handleScrollAnimation);
   position: relative;
   width: 80vw;
   height: 100%;
-  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  padding-top: 0;
   opacity: 0;
   transform: translateX(-50px);
   animation: fadeInFromLeft 1s ease-in-out forwards;
@@ -205,6 +228,15 @@ window.addEventListener("scroll", handleScrollAnimation);
   font-style: italic;
   text-align: left;
   bottom: 44%;
+}
+.hero-text4 {
+  left: 13%;
+  position: absolute;
+  color: #fff;
+  font-size: 1.8rem;
+  font-style: italic;
+  text-align: left;
+  bottom: 34%;
 }
 
 .search {
