@@ -34,7 +34,7 @@ class Users {
     const { EmailAdd, UserPass } = req.body;
     // query
     const query = `
-      SELECT UserName, UserAge, EmailAdd, UserPass, UserRole
+      SELECT UserName, UserAge, EmailAdd, UserRole
       FROM Users
       WHERE EmailAdd = '${EmailAdd}'
     `;
@@ -62,7 +62,7 @@ class Users {
             res.json({
               msg: "Logged in!",
               token,
-              cresult: cresult[0],
+              cresult: result[0],
             });
           } else {
             res.json({
