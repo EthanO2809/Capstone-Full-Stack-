@@ -54,10 +54,10 @@ class Users {
             UserPass,
           });
           // Save A token
-          res.cookie("realUser", token, {
-            expires: new Date(Date.now() + 259200000),
-            httpOnly: true,
-          });
+          // res.cookie("realUser", token, {
+          //   expires: new Date(Date.now() + 259200000),
+          //   httpOnly: true,
+          // });
           if (cresult) {
             res.json({
               msg: "Logged in!",
