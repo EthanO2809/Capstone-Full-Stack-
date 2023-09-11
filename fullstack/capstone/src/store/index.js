@@ -142,30 +142,23 @@ export default createStore({
           } else {
             return { success: false, error: "Unknown error" };
           }
-        } catch (err) {
-          console.log("Error")
+        } catch (e) {
+          console.log("Error: ", e)
           return { success: false, error: "Network error" };
         }
       },
     },
-    async checkCookie(context){
-      const token = Cookies.get("userToken");
-      const data = JSON.parse(localStorage.getItem("data"))
-      if(token && data){
-        context.commit("setToken", token)
-        context.commit("setUser", data)
-      }
-    },
-    async initialize(context){
-      context.dispatch("checkCookie")
-    },
-    async logout(context){
-      localStorage.removeItem("data")
-      Cookies.remove("userToken")
-      context.commit("setUser", null)
-      context.commit("setToken", null)
-      router.push("/Login")
-    },
+    // async checkCookie(context){
+    //   const token = Cookies.get("userToken");
+    //   const data = JSON.parse(localStorage.getItem("data"))
+    //   if(token && data){
+    //     context.commit("setToken", token)
+    //     context.commit("setUser", data)
+    //   }
+    // },
+    // async initialize(context){
+    //   context.dispatch("checkCookie")
+    // },
     async updateUser(context, payload) {
       try {
         const { res } = await axios.patch(`${miniURL}user/${payload.UserID}`, payload);

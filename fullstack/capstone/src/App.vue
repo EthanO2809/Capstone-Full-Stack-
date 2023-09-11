@@ -17,7 +17,7 @@ export default {
   created(){
     const data = JSON.parse(localStorage.getItem("data"))
     if(data){
-      this.$store.dispatch("checkCookie")
+      // this.$store.dispatch("checkCookie")
       this.$store.commit("setUser", data)
     }
   }

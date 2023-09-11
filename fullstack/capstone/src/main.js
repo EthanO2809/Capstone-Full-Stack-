@@ -6,6 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 const app = Vue.createApp({});
 app.mount('#app');
-store.dispatch("initialize")
+// store.dispatch("initialize")
 
 createApp(App).use(store).use(router).mount('#app')

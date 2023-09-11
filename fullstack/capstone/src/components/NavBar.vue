@@ -18,15 +18,15 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarText">
+          <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
-          <div v-if="!user">
-          <li class="nav-item">
-            <router-link to="/Register">Register</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/Login">Login</router-link>
-          </li>
+          <div v-if="user === null" class="log">
+            <li class="nav-item">
+              <router-link to="/Register">Register</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/Login">Login</router-link>
+            </li>
           </div>
           <li class="nav-item">
             <router-link to="/">Home</router-link>
@@ -37,14 +37,15 @@
           <li class="nav-item">
             <router-link to="/contact">ContactUs</router-link>
           </li>
-          <li class="nav-item" v-if="user.UserRole === 'Admin'">
+          <li class="nav-item" v-if="user ? user.UserRole === 'Admin' : null">
             <router-link to="/admin">Admin</router-link>
           </li>
           <li class="nav-item" v-if="user">
-            
             <router-link to="/profile">Profile</router-link>
           </li>
+          <li class="nav-item" v-if="user">
           <button @click="logout">Logout</button>
+          </li>
         </ul>
       </div>
       <a class="nav-link text-white" href="/products">ShopUs</a>
@@ -54,28 +55,43 @@
           alt=""
           class="img-02"
       /></router-link>
-    </div>
+      </div>
   </nav>
 </template>
 
 <script>
+import Cookies from "js-cookie";
 export default {
-  computed:{
-    user(){
-      return this.$store.state.user
-    }
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
   },
-  methods:{
-    async logout(){
-      console.log("reached")
-      const res = this.$store.dispatch("logout")
-      console.log(res)
-    }
-  }
+  methods: {
+    async logout() {
+      if (localStorage.getItem("data") && Cookies.get("userToken")) {
+        localStorage.removeItem("data");
+        Cookies.remove("userToken");
+        this.$store.commit("setUser", null);
+        this.$store.commit("setToken", null);
+        this.$router.push("/Login");
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+button {
+  font-weight: 600;
+  background: #e1e1e100;
+  color: white;
+  border: #e1e1e100;
+}
+.log{
+  display: flex;
+  
+}
 .img-01 {
   width: 7.4rem;
   height: 7rem;
@@ -102,11 +118,11 @@ a {
 .flex {
   display: flex;
   justify-content: flex-end;
-  width: 65%;
+  width: 100%;
 }
 
 li {
-  padding: 1.5rem;
+  padding-right: 1.2rem;
 }
 
 .img-02 {
@@ -139,14 +155,14 @@ li {
 
 .nav-item:focus:after,
 .nav-item:hover:after {
-  width: 100%;
+  width: 0%;
   left: 0%;
 }
 
 .nav-item:after {
   content: "";
   pointer-events: none;
-  bottom: 18px;
+  bottom: 0px;
   left: 50%;
   position: absolute;
   width: 0%;
@@ -159,8 +175,8 @@ li {
 
 .nav-link {
   position: relative;
-  right: 10%;
-  margin-right: 2rem;
+  right: 0%;
+  padding-right: 0rem;
 }
 
 @import url("https://fonts.cdnfonts.com/css/khula");
