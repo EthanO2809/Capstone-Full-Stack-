@@ -79,7 +79,7 @@ class Users {
   }
   async registerUser(req, res) {
     const data = req.body;
-    data.UserPass = await hash(data.UserPass, 15);
+    data.UserPass = await hash(data.UserPass, 10);
     const user = {
       EmailAdd: data.EmailAdd,
       UserPass: data.UserPass,
