@@ -2,7 +2,7 @@
   <div class="register">
     <div class="hero">
       <h2>Register</h2>
-      <form @submit.prevent="register">
+      <form @submit.prevent="registerUser">
         <label class="lblname" for="username">Username</label><br />
         <input
           type="text"
@@ -10,9 +10,17 @@
           v-model="userData.UserName"
           required
         /><br />
+        <label class="lblage">Age:</label><br />
+        <input
+          v-model="userData.UserAge"
+          type="number"
+          class="passinp"
+          required
+        />
+        <br>
         <label class="lblemail">Email:</label><br />
         <input
-          v-model="userData.emailAdd"
+          v-model="userData.EmailAdd"
           type="email"
           class="emailinp"
           required
@@ -25,16 +33,8 @@
           required
         />
         <br />
-        <label class="lblage">Age:</label><br />
-        <input
-          v-model="userData.UserAge"
-          type="password"
-          class="passinp"
-          required
-        />
-        <br />
         <div class="btndiv">
-          <button class="btn" @click="registerUser()">
+          <button class="btn" type="submit">
             <strong>Register</strong>
             <div id="container-stars">
               <div id="stars"></div>
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -72,9 +73,20 @@ export default {
     };
   },
   methods: {
-    async registerUser(payload) {
+    async registerUser() {
       this.registrationError = null;
-        context.dispatch("registerUser")
+      console.log(this.userData)
+        await this.$store.dispatch("registerUser", this.userData)
+        .then(()=>{
+          Swal.fire({
+            icon:'success',
+            title: 'Success',
+            text: 'You have successfully registered',
+            confirmButtonText: 'Ok'
+          }).then(()=>{
+            this.$router.push('/Login')
+          })
+        })
     },
   },
 };

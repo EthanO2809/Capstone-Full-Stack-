@@ -94,7 +94,7 @@ export default {
         product: {
           prodName: "",
           quantity: null,
-          amount: null,
+          Price: null,
           category: "",
           prodUrl: "",
         },

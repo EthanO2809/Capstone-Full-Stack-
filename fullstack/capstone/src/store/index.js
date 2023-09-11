@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
 import Cookies from 'js-cookie'
+import router from "@/router";
 const miniURL = "https://capstone-ethanlo.onrender.com/";
 
 export default createStore({
@@ -14,7 +15,9 @@ export default createStore({
     spinner: null,
     token: null,
     msg: null,
-    chosenProduct: null
+    chosenProduct: null,
+    loggedIn: false,
+    loggedinUser: null,
   },
   mutations: {
     setUsers(state, users) {
@@ -101,19 +104,13 @@ export default createStore({
     },
     async registerUser(context, payload) {
         console.log("Starting registration process...");
-        console.log(payload)
       try {
-        console.log("payload: ", payload)
-        const { res } = await axios.post(`${miniURL}register`, payload);
+        const res = await axios.post(`${miniURL}register`, payload);
         console.log(res.data)
-        const { results, err } = await res.data;
-        console.log(results, err) 
-        if (results) {
-          console.log("User registered successfully:", results[0]); 
-          console.log(results)
-          console.log(results[0])
-          context.commit("setUser", results[0]);
-          context.commit("setSpinner", false);
+        const { msg, err } = await res.data;
+        console.log(msg) 
+        if (msg) {
+          context.commit("setUser", msg)
         } else {
           console.log("Registration error:", err);
           context.commit("setMsg", err);
@@ -127,51 +124,48 @@ export default createStore({
         try {
           const res = await axios.post(`${miniURL}login`, payload);
           console.log("Res: ", res.data);
-          const { msg, err, token, userData } = res.data;
-          console.log(userData);
+          const { msg, err, token, cresult } = res.data;
+          console.log(res.data);
           if (msg === "You are providing the wrong email or password") {
-            context.commit("setError", msg);
-            context.commit("setLogStatus", "Not logged in");
             return { success: false, error: msg };
           }
-          if (msg) {
-            context.commit("setUser", userData);
+          if (msg === "Logged in!") {
+            context.commit("setUser", cresult);
+            localStorage.setItem("data", JSON.stringify(cresult));
             context.commit("setToken", token);
-            context.commit("setUserData", userData);
-            context.commit("setLogStatus", "Logged in!");
             Cookies.set("userToken", token, {
               expires: 1,
             });
-            return { success: true, token };
+            return { success: true, token, cresult };
           } else if (err) {
-            context.commit("setError", err);
             return { success: false, error: err };
           } else {
-            context.commit("setError", "Unknown error during login");
-            context.commit("setLogStatus", "not logged in");
             return { success: false, error: "Unknown error" };
           }
         } catch (err) {
-          if (err.resp) {
-            console.error(
-              "Server gave an error: ",
-              err.resp.status,
-              err.resp.data
-            );
-          } else if (err.req) {
-            console.error(
-              "No response from the server. Check your internet connection"
-            );
-          } else {
-            console.log("An error occured: ", err);
-          }
-          context.commit("setError", "An error occured while trying to log in");
-          context.commit("setLogStatus", "Not logged in");
+          console.log("Error")
           return { success: false, error: "Network error" };
         }
       },
     },
-    
+    async checkCookie(context){
+      const token = Cookies.get("userToken");
+      const data = JSON.parse(localStorage.getItem("data"))
+      if(token && data){
+        context.commit("setToken", token)
+        context.commit("setUser", data)
+      }
+    },
+    async initialize(context){
+      context.dispatch("checkCookie")
+    },
+    async logout(context){
+      localStorage.removeItem("data")
+      Cookies.remove("userToken")
+      context.commit("setUser", null)
+      context.commit("setToken", null)
+      router.push("/Login")
+    },
     async updateUser(context, payload) {
       try {
         const { res } = await axios.patch(`${miniURL}user/${payload.UserID}`, payload);
@@ -186,6 +180,7 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
+    
     async deleteUser(context, UserID) {
       try {
         const res = await axios.delete(`${miniURL}user/${UserID}`);

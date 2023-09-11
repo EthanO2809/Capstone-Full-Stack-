@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -50,14 +51,19 @@ export default {
     async login() {
       try {
         const response = await this.$store.dispatch("login", {
-          email: this.email,
-          password: this.password,
+          EmailAdd: this.email,
+          UserPass: this.password,
         });
 
-        if (response.data.success) {
+        if (response.success) {
           // Login successful, update state or perform necessary actions
-          this.$store.commit("setUser", response.data.user);
-          this.$router.push("/dashboard"); // Redirect to a protected route
+          Swal.fire({
+            icon:'success',
+            title: 'Login successful',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.$router.push("/"); // Redirect to a protected route
         } else {
           // Login failed, display error message
           this.loginMessage = "Invalid credentials. Please try again.";
