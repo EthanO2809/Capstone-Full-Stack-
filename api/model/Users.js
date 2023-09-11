@@ -39,6 +39,7 @@ class Users {
       WHERE EmailAdd = '${EmailAdd}'
     `;
     connection.query(query, [EmailAdd], async (err, result) => {
+      console.log(result)
       if (err) throw err;
       if (!result?.length) {
         res.json({
@@ -47,6 +48,7 @@ class Users {
         });
       } else {
         const hashed = result[0].UserPass
+        console.log(hashed)
         await compare(UserPass, hashed, (cerr, cresult) => {
           if (cerr) throw cerr;
           // Create a token
