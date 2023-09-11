@@ -46,8 +46,8 @@ class Users {
           msg: "You are providing the wrong email or password",
         });
       } else {
-        const hased = result[0].UserPass
-        await compare(UserPass, hased, (cerr, cresult) => {
+        const hashed = result[0].UserPass
+        await compare(UserPass, hashed, (cerr, cresult) => {
           if (cerr) throw cerr;
           // Create a token
           const token = createToken({
