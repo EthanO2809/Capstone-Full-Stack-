@@ -1,4 +1,5 @@
 <template>
+<div>
    <div class="contact">
     <img src="https://i.postimg.cc/8Pr62dd3/1649074ecd03634e05639d767e131258.jpg" alt="" class="img-01">
     <div class="contactsec">
@@ -25,18 +26,23 @@
         </div>
         </div>
     </div>
-    </div> 
+    </div>
+    <Footer />
+    </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 export default {
-    
+    components:{
+        Footer,
+    },
 }
 </script>
 
 <style scoped>
 .contact {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
 }
 
@@ -45,7 +51,7 @@ export default {
     width: 45rem;
     height: 30rem;
     left: 28%;
-    top: 25%;
+    top: 20%;
     opacity: 30%;
     border-radius: 23px;
 }
@@ -72,7 +78,7 @@ export default {
 
 .contactsec {
     position: relative;
-    top: 26%;
+    top: 24%;
     left: 22%;
     width: 60%;
     margin-right: 0;

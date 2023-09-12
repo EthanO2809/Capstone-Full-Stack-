@@ -1,105 +1,274 @@
 <template>
-  <div class="prods">
-    <div class="container">
-      <h2 class="class-display2 products mb-5 text-white">
-        Welcome to our cutting-edge tech products page, where innovation meets
-        your needs!
-      </h2>
-       <div class="filter">
-    <label for="category-filter text-white">Filter by Category:</label>
-    <select v-model="selectedCategory" id="category-filter">
-      <option value="">All Categories</option>
-      
-      <option v-for="category in uniqueCategories" :key="category">{{ category }}</option>
-    </select>
-  </div>
-       <div class="hero" @mouseover="hoveredProduct = productItem" @mouseleave="hoveredProduct = null" v-if="filteredProducts">
-        <div
-          v-for="productItem in filteredProducts"
-          :key="productItem.prodID"
-          class="product-card"
-        >
-          <div class="centered">
-            <img
-              :src="
-                hoveredProduct === productItem
-                  ? productItem.hoveredProdUrl
-                  : productItem.prodUrl
-              "
-              class="hero-img"
-              :alt="productItem.prodName"
-            />
-            <h2 class="hero-text">{{ productItem.prodName }}</h2>
-            <h3 class="hero-text2">{{ productItem.prodDesc }}</h3>
-            <h3 class="hero-text4">{{ productItem.Category }}</h3>
-            <h4 class="hero-text3">
-              <span>R</span> {{ productItem.Price }} <span>,00</span>
-            </h4>
-            <button @click="addToCart(productItem)">
-              <div class="svg-wrapper-1">
-                <div class="svg-wrapper">
-                  <svg
-                    height="24"
-                    width="24"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                    <path
-                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
+  <div>
+    <div class="prods">
+      <div class="container">
+        <h2 class="class-display2 products mb-5 text-white">
+          Welcome to our cutting-edge tech products page, where innovation meets
+          your needs!
+        </h2>
+        <div class="filter">
+          <label for="category-filter" class="text-white"
+            >Filter by Category:
+          </label>
+          <select
+            v-model="selectedCategory"
+            class="options text-center"
+            id="category-filter"
+          >
+            <option value="" class="options">All Categories</option>
+
+            <option v-for="category in uniqueCategories" :key="category">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+        <div class="pb">
+          <button class="pps">
+            <a href="#productS" class="text-white"
+              >Click To View Our Products ⬇️</a
+            >
+          </button>
+        </div>
+        <div class="side-kick">
+          <div
+            class="hero"
+            id="productS"
+            @mouseover="hoveredProduct = productItem"
+            @mouseleave="hoveredProduct = null"
+            v-if="filteredProducts"
+          >
+            <div
+              v-for="productItem in filteredProducts"
+              :key="productItem.prodID"
+              class="dfghjk"
+            >
+              <div class="centered">
+                <div class="text-info">
+                  <h2 class="hero-text">{{ productItem.prodName }}</h2>
+                  <h3 class="hero-text2">{{ productItem.prodDesc }}</h3>
+                  <h3 class="hero-text4">{{ productItem.Category }}</h3>
+                  <h4 class="hero-text3">
+                    <span>R</span> {{ productItem.Price }} <span>,00</span>
+                  </h4>
+                  <div class="star-button">
+                    <button class="btnn" @click="addToCart(productItem)">
+                      Send To Cart
+                      <div class="star-1">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="star-2">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="star-3">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="star-4">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="star-5">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="star-6">
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 784.11 815.53"
+                          style="
+                            shape-rendering: geometricPrecision;
+                            text-rendering: geometricPrecision;
+                            image-rendering: optimizeQuality;
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                          "
+                          version="1.1"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs></defs>
+                          <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                            <path
+                              d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                              class="fil0"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="kick-img">
+                  <img
+                    :src="
+                      hoveredProduct === productItem
+                        ? productItem.hoveredProdUrl
+                        : productItem.prodUrl
+                    "
+                    class="hero-img"
+                    :alt="productItem.prodName"
+                  />
                 </div>
               </div>
-              <span>Send to Cart</span>
-            </button>
+            </div>
+          </div>
+          <div v-else class="row">
+            <Spinner />
           </div>
         </div>
       </div>
-      <div v-else class="row">
-        <Spinner />
-      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue";
 import Spinner from "../components/Spinner.vue";
-
 export default {
   components: {
     Spinner,
+    Footer,
   },
   computed: {
     products() {
-    return this.$store.state.products || []; // Default to an empty array if products is null or undefined
-  },
+      return this.$store.state.products || []; // Default to an empty array if products is null or undefined
+    },
 
-uniqueCategories() {
-    if (!this.products) {
-      return []; // Return an empty array if products is null or undefined
-    }
+    uniqueCategories() {
+      if (!this.products) {
+        return []; // Return an empty array if products is null or undefined
+      }
 
-    return [...new Set(this.products.map(product => product.Category))];
-  },
+      return [...new Set(this.products.map((product) => product.Category))];
+    },
 
     filteredProducts() {
-    if (!this.selectedCategory) {
-      return this.products; // No category selected, return all products
-    } else {
-      // Filter products by selected category
-      return this.products.filter(product => product.Category === this.selectedCategory);
-    }
+      if (!this.selectedCategory) {
+        return this.products; // No category selected, return all products
+      } else {
+        // Filter products by selected category
+        return this.products.filter(
+          (product) => product.Category === this.selectedCategory
+        );
+      }
+    },
   },
-},
   methods: {
     addToCart(productItem) {
       this.$store.dispatch("addToCart", productItem);
     },
   },
   mounted() {
-   this.$store.dispatch("fetchProducts")
+    this.$store.dispatch("fetchProducts");
   },
   data() {
     return {
@@ -110,7 +279,7 @@ uniqueCategories() {
 };
 
 function handleScrollAnimation() {
-  const productCards = document.querySelectorAll(".product-card");
+  const productCards = document.querySelectorAll(".side-kick");
 
   productCards.forEach((card) => {
     const cardTop = card.getBoundingClientRect().top;
@@ -131,9 +300,47 @@ window.addEventListener("scroll", handleScrollAnimation);
 
 <style scoped>
 .prods {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  padding-bottom: 24rem;
+  padding-bottom: 4rem;
+  padding-top: 14rem;
+}
+
+.text-info {
+  width: 80%;
+  height: 23rem;
+  padding-top: 4rem;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding-left: 6rem;
+  flex-direction: column;
+}
+
+.star-button{
+  width: 60%;
+  height: 30%;
+  display: flex;
+  justify-content: end;
+}
+
+.kick-img{
+  width: 40%;
+  height: 23rem;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.side-kick {
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+}
+.options {
+  border-radius: 4px;
+  margin-left: 1rem;
+  width: 8rem;
 }
 
 .centered {
@@ -157,12 +364,36 @@ window.addEventListener("scroll", handleScrollAnimation);
   width: 16rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+.pb {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.pps {
+  border-radius: 18px;
+  font-weight: 700;
+  height: 2.6rem;
+  width: 24rem;
+  color: white !important;
+  font-size: 1.4rem;
+  border: 0px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0);
+}
+
 .hero {
   position: relative;
   width: 80vw;
   height: 100%;
-  padding-bottom: 4rem;
-  padding-top: 0;
+  padding-bottom: 0rem !important;
+  padding-top: 0rem !important;
   opacity: 0;
   transform: translateX(-50px);
   animation: fadeInFromLeft 1s ease-in-out forwards;
@@ -193,7 +424,7 @@ window.addEventListener("scroll", handleScrollAnimation);
 .hero-img {
   position: relative;
   border-radius: 1rem;
-  left: 30%;
+  /* left: 30%; */
   width: 20rem;
   margin-top: 3rem;
 }
@@ -204,39 +435,40 @@ window.addEventListener("scroll", handleScrollAnimation);
 }
 
 .hero-text {
-  left: 13%;
-  position: absolute;
+  /* left: 13%; */
+  /* position: absolute; */
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  font-weight: 700;
   font-style: italic;
-  bottom: 60%;
+  /* bottom: 74%; */
 }
 .hero-text2 {
-  left: 13%;
-  position: absolute;
+  /* left: 13%; */
+  /* position: absolute; */
   color: #fff;
   font-size: 1.2rem;
   font-style: italic;
   text-align: left;
-  bottom: 55%;
+  /* bottom: 68%; */
 }
 .hero-text3 {
-  left: 13%;
-  position: absolute;
+  /* left: 13%; */
+  /* position: absolute; */
   color: #fff;
   font-size: 1.8rem;
   font-style: italic;
   text-align: left;
-  bottom: 44%;
+  /* bottom: 58%; */
 }
 .hero-text4 {
-  left: 13%;
-  position: absolute;
+  /* left: 13%; */
+  /* position: absolute; */
   color: #fff;
   font-size: 1.8rem;
   font-style: italic;
   text-align: left;
-  bottom: 34%;
+  /* bottom: 48%; */
 }
 
 .search {
@@ -250,7 +482,7 @@ window.addEventListener("scroll", handleScrollAnimation);
 
 .products {
   position: relative;
-  padding-top: 18rem;
+  /* padding-top: 12rem; */
   left: 9%;
   margin: 0;
   letter-spacing: -0.05em;
@@ -265,61 +497,156 @@ window.addEventListener("scroll", handleScrollAnimation);
   transform: translate(0px, 0px);
   font-family: "Nunito Sans", sans-serif;
 }
-button {
-  font-family: inherit;
-  position: absolute;
-  height: 3rem;
-  width: 11.6rem;
-  bottom: 20%;
-  font-size: 20px;
-  background: royalblue;
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.2s;
-}
-
-button span {
-  display: block;
-  margin-left: 0.3em;
+.btnn {
+  position: relative;
+  left: 20%;
+  top: 22%;
+  height: 4rem;
+  padding: 12px 35px;
+  background: #000000;
+  font-size: 17px;
+  font-weight: 500;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 0 #fec1958c;
   transition: all 0.3s ease-in-out;
 }
 
-button svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
+.star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
 }
 
-button:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
+.star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
-button:hover svg {
-  transform: translateX(3.2em) rotate(45deg) scale(1.1);
+.star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
-button:hover span {
-  transform: translateX(8em);
+.star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
-button:active {
-  transform: scale(0.95);
+.star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
-@keyframes fly-1 {
-  from {
-    transform: translateY(0.1em);
-  }
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s ease;
+}
 
-  to {
-    transform: translateY(-0.2em);
-  }
+.btnn:hover {
+  background: transparent;
+  color: #ffffff;
+  box-shadow: 0 0 25px #ffffff;
+}
+
+.btnn:hover .star-1 {
+  position: absolute;
+  top: -80%;
+  left: -30%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.btnn:hover .star-2 {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.btnn:hover .star-3 {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.btnn:hover .star-4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.btnn:hover .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.btnn:hover .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #ffffff);
+  z-index: 2;
+}
+
+.fil0 {
+  fill: #ffffff;
 }
 
 @import url("https://fonts.cdnfonts.com/css/sf-mono");

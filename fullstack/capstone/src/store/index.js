@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import router from "@/router";
 const miniURL = "https://capstone-ethanlo.onrender.com/";
 
@@ -8,6 +8,7 @@ export default createStore({
   state: {
     users: null,
     user: null,
+    updates: null,
     products: null,
     product: null,
     cart: [],
@@ -16,15 +17,16 @@ export default createStore({
     token: null,
     msg: null,
     chosenProduct: null,
-    loggedIn: false,
-    loggedinUser: null,
   },
   mutations: {
     setUsers(state, users) {
       state.users = users;
     },
-    setSingleProduct(state, product){
-      state.chosenProduct = product
+    setUpdates(state, updates) {
+      state.updates = updates;
+    },
+    setSingleProduct(state, product) {
+      state.chosenProduct = product;
     },
     setUser(state, user) {
       state.user = user;
@@ -37,18 +39,17 @@ export default createStore({
       state.product = product;
     },
     addToCart(state, productItem) {
-   
-      const existingProduct = state.cart.find((item) => item.prodID === productItem.prodID);
+      const existingProduct = state.cart.find(
+        (item) => item.prodID === productItem.prodID
+      );
       if (existingProduct) {
-      
         existingProduct.quantity++;
       } else {
-      
         state.cart.push({ ...productItem, quantity: 1 });
       }
     },
     REMOVE_FROM_CART(state, prodID) {
-      const itemIndex = state.cart.findIndex(item => item.prodID === prodID);
+      const itemIndex = state.cart.findIndex((item) => item.prodID === prodID);
       if (itemIndex !== -1) {
         state.cart.splice(itemIndex, 1);
       }
@@ -68,12 +69,18 @@ export default createStore({
       commit("addToCart", productItem);
     },
     removeFromCart({ commit }, prodID) {
-      commit('REMOVE_FROM_CART', prodID);
+      commit("REMOVE_FROM_CART", prodID);
     },
     async fetchUsers(context) {
       try {
-        const { data } = await axios.get(`${miniURL}Users`);
-        context.commit("setUsers", data.results);
+        const res = await axios.get(`${miniURL}Users`);
+        const { results, err } = res.data
+        if(results.length > 0){
+          context.commit("setUsers", results);
+        }
+        if(err){
+          context.commit("setMsg", err);
+        }
       } catch (e) {
         context.commit("setMsg", "an error occured");
       }
@@ -103,14 +110,14 @@ export default createStore({
       }
     },
     async registerUser(context, payload) {
-        console.log("Starting registration process...");
+      console.log("Starting registration process...");
       try {
         const res = await axios.post(`${miniURL}register`, payload);
-        console.log(res.data)
+        console.log(res.data);
         const { msg, err } = await res.data;
-        console.log(msg) 
+        console.log(msg);
         if (msg) {
-          context.commit("setUser", msg)
+          context.commit("setUser", msg);
         } else {
           console.log("Registration error:", err);
           context.commit("setMsg", err);
@@ -120,70 +127,62 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
-      async login(context, payload) {
-        try {
-          const res = await axios.post(`${miniURL}login`, payload);
-          console.log("Res: ", res.data);
-          const { msg, err, token, cresult } = res.data;
-          console.log(res.data);
-          if (msg === "You are providing the wrong email or password") {
-            return { success: false, error: msg };
-          }
-          if (msg === "Logged in!") {
-            context.commit("setUser", cresult);
-            localStorage.setItem("data", JSON.stringify(cresult));
-            context.commit("setToken", token);
-            Cookies.set("userToken", token, {
-              expires: 1,
-            });
-            return { success: true, token, cresult };
-          } else if (err) {
-            return { success: false, error: err };
-          } else {
-            return { success: false, error: "Unknown error" };
-          }
-        } catch (e) {
-          console.log("Error: ", e)
-          return { success: false, error: "Network error" };
-        }
-      },
-    },
-    // async checkCookie(context){
-    //   const token = Cookies.get("userToken");
-    //   const data = JSON.parse(localStorage.getItem("data"))
-    //   if(token && data){
-    //     context.commit("setToken", token)
-    //     context.commit("setUser", data)
-    //   }
-    // },
-    // async initialize(context){
-    //   context.dispatch("checkCookie")
-    // },
-    async updateUser(context, payload) {
+    async login(context, payload) {
       try {
-        const { res } = await axios.patch(`${miniURL}user/${payload.UserID}`, payload);
-        const {msg, err} = res.data
-        if(msg){
-          context.commit("setUser", msg)
+        const res = await axios.post(`${miniURL}login`, payload);
+        console.log("Res: ", res.data);
+        const { msg, err, token, cresult } = res.data;
+        console.log(res.data);
+        if (msg === "You are providing the wrong email or password") {
+          return { success: false, error: msg };
         }
-        if(err){
-          context.commit("setMsg", err)
+        if (msg === "Logged in!") {
+          context.commit("setUser", cresult);
+          localStorage.setItem("data", JSON.stringify(cresult));
+          context.commit("setToken", token);
+          Cookies.set("userToken", token, {
+            expires: 1,
+          });
+          return { success: true, token, cresult };
+        } else if (err) {
+          return { success: false, error: err };
+        } else {
+          return { success: false, error: "Unknown error" };
         }
       } catch (e) {
-        context.commit("setMsg", "an error occured");
+        console.log("Error: ", e);
+        return { success: false, error: "Network error" };
       }
     },
-    
+    async updateDetails(context, payload) {
+      console.log("reached");
+      try {
+        const res = await axios.patch(
+          `${miniURL}user/${payload.UserID}`,
+          payload
+        );
+        const { msg, err } = await res.data;
+        if (msg === "User record was updated successfully") {
+          context.dispatch("fetchUsers");
+          context.commit("setUpdates", msg);
+        }
+        if (err) {
+          context.commit("setMsg", data.err);
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occurred");
+      }
+    },
     async deleteUser(context, UserID) {
       try {
         const res = await axios.delete(`${miniURL}user/${UserID}`);
-        if(res.status === 200){
-          context.commit('setUser', res.data.msg)
-        } else{
-          context.commit('setMsg', "an error occured, please try again")
+        if (res.status === 200) {
+          context.commit("setUser", res.data.msg);
+        } else {
+          context.commit("setMsg", "an error occured, please try again");
         }
       } catch (e) {
-        console.error('Error while deleting user: ', e)
+        console.error("Error while deleting user: ", e);
         context.commit("setMsg", "an error occured");
       }
     },
@@ -191,12 +190,14 @@ export default createStore({
       console.log("REACHED");
       try {
         const { res } = await axios.post(`${miniURL}product`, payload);
-        const { results, err } = await res.data;
-        if (results) {
-          context.commit("setProduct", results[0]);
+        const { msg, err } = await res.data;
+        if (msg === "Product inserted successfully") {
+          context.commit("setUpdates", msg);
           context.commit("setSpinner", false);
-        } else {
+        } else if(err) {
           context.commit("setMsg", msg);
+        } else{
+          console.log("Other error")
         }
       } catch (e) {
         context.commit("setMsg", "an error occured");
@@ -204,13 +205,17 @@ export default createStore({
     },
     async updateProduct(context, payload) {
       try {
-        const res = await axios.patch(`${miniURL}product/${payload.prodID}`, payload);
-        const { msg, err } = res.data
-        if(msg){
-          context.commit("setProduct", msg)
+        const res = await axios.patch(
+          `${miniURL}product/${payload.prodID}`,
+          payload
+        );
+        const { msg, err } = res.data;
+        if (msg) {
+          context.dispatch("fetchUsers")
+          context.commit("setProduct", msg);
         }
-        if(err){
-          context.commit("setMsg", err)
+        if (err) {
+          context.commit("setMsg", err);
         }
       } catch (e) {
         context.commit("setMsg", "an error occured");
@@ -229,10 +234,15 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
-    getters: {
-      totalCartPrice(state) {
-        return state.cart.reduce((total, item) => total + item.Price * item.quantity, 0);
-      },
+  },
+
+  getters: {
+    totalCartPrice(state) {
+      return state.cart.reduce(
+        (total, item) => total + item.Price * item.quantity,
+        0
+      );
     },
+  },
   modules: {},
 });

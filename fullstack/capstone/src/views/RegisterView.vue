@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="register">
     <div class="hero">
       <h2>Register</h2>
@@ -56,9 +57,12 @@
       class="img-ast"
     />
   </div>
+  <Footer />
+  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 import Swal from 'sweetalert2'
 export default {
   data() {
@@ -71,6 +75,9 @@ export default {
       },
       registrationError: null,
     };
+  },
+  components: {
+    Footer,
   },
   methods: {
     async registerUser() {
@@ -99,12 +106,17 @@ export default {
 }
 
 .lblemail {
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
+  font-size: 24px;
+}
+
+.lblage {
+  /* padding-top: 1rem; */
   font-size: 24px;
 }
 
 .lblpass {
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
   font-size: 24px;
 }
 
@@ -325,7 +337,7 @@ strong {
 .btndiv {
   position: relative;
   left: 30%;
-  padding-top: 2.5rem;
+  padding-top: 1rem;
 }
 
 .hero {

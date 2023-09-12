@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="about">
     <div class="container-fluid">
       <div class="heading">
@@ -18,10 +19,16 @@
 </div>
     </div>
   </div>
+  <Footer />
+  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 export default {
+  components: {
+    Footer,
+  }
   
 }
 </script>

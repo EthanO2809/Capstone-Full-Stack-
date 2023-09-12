@@ -32,9 +32,9 @@
             />
           </td>
           <td>
-          <UpdateUser :user="user"/>  
-            <button class="del" @click="deleteUser(user.UserID)">delete</button>
-          </td>
+    <UpdateUser :user="user" />
+    <button class="del" @click="deleteUser(user.UserID)">delete</button>
+  </td>
         </tr>
         <tr v-else>
           user data is undefined
@@ -109,6 +109,7 @@
   </div>
   </center>
   </div>
+
   </div>
 </template>
 
@@ -131,6 +132,7 @@ export default {
       sort: "",
       sortBy: "id",
       sortMode: "prodID",
+      user: null,
     };
   },
   computed: {
@@ -221,8 +223,6 @@ export default {
 img {
   width: 7rem;
 }
-
-
 .del {
   width: 5rem;
   border-radius: 5px;

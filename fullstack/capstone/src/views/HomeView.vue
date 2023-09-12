@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="home">
     <div class="hero">
       <img src="https://i.postimg.cc/pVDbrSFG/Screenshot-2023-08-31-084124.png" alt="" class="heroimg">
@@ -69,10 +70,17 @@
     </div>
     </center>
   </div>
+  <Footer />
+  </div>
 </template>
 
 <script>
-export default {};
+import Footer from "../components/Footer.vue";
+export default {
+  components: { 
+    Footer,
+    }
+};
 </script>
 <style scoped>
 

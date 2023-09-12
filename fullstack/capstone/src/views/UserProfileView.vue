@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="container">
         <h1 class="text-center text-white">
             User Profile
@@ -17,10 +18,16 @@
             <hr class="hr-02">
         </div>
 </div>
+<Footer />
+</div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
     export default {
+        components: {
+            Footer,
+        },
         computed:{
             user(){
                 return this.$store.state.user;

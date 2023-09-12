@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="main">
     <div class="cartpg">
       <h2 class="text-center">Your Cart</h2>
@@ -27,10 +28,16 @@
       <p class="total">Total Price: R{{ totalCartPrice }}</p>
     </div>
   </div>
+  <Footer />
+  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 export default {
+  components: {
+    Footer,
+  },
   props: {
     cartItems: Array,
   },
@@ -53,6 +60,7 @@ export default {
 <style scoped>
 .main {
   height: 100%;
+  padding-bottom: 5.25rem;
 }
 
 .flec {

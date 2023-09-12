@@ -2,17 +2,17 @@
   <div>
     <NavBar />
     <router-view />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import Footer from "./components/Footer.vue";
+// import Footer from "./components/Footer.vue";
 export default {
   components: {
     NavBar,
-    Footer
+    // Footer
   },
   created(){
     const data = JSON.parse(localStorage.getItem("data"))
@@ -35,7 +35,26 @@ export default {
   background-attachment: fixed;
   height: 100%;
 }
+.modal{
+  z-index:5 !important;
+}
+.modal-backdrop{
+  z-index:-5 !important;
+}
+.modal-dialog{
+    z-index:5 !important;
+    margin-top:14rem !important;
+}
+.modal-content{
+    z-index:5 !important;
+}
+.modal-open{
+    z-index:5 !important;
 
+}
+/* .show{
+    z-index:5 !important;
+} */
 .footer {
   background-color: black;
 }

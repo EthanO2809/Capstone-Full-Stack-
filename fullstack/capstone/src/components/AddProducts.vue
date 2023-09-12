@@ -38,6 +38,12 @@
               required
             />
             <input
+              placeholder="product Description"
+              type="text"
+              v-model="model.product.prodDesc"
+              required
+            />
+            <input
               placeholder="quantity"
               type="number"
               v-model="model.product.quantity"
@@ -59,6 +65,12 @@
               placeholder="product image"
               type="text"
               v-model="model.product.prodUrl"
+              required
+            />
+            <input
+              placeholder="product hover image"
+              type="text"
+              v-model="model.product.hoveredProdUrl"
               required
             />
           </center>
@@ -84,6 +96,8 @@ export default {
       model: {
         product: {
           prodName: "",
+          prodDesc:"",
+          hoveredProdUrl:"",
           quantity: "",
           Price: "",
           Category: "",

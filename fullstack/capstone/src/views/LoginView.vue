@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="login">
     <div class="hero">
     <h2>Login</h2>
@@ -35,9 +36,12 @@
       class="img-ast"
     />
   </div>
+  <Footer />
+  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 import Swal from 'sweetalert2'
 export default {
   data() {
@@ -46,6 +50,9 @@ export default {
       password: "",
       loginMessage: "",
     };
+  },
+  components: {
+    Footer,
   },
   methods: {
     async login() {
