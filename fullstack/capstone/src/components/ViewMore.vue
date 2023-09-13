@@ -189,8 +189,8 @@ import Spinner from '../components/Spinner.vue'
 import Footer from '../components/Footer.vue'
 export default {
   components:{
-    Footer,
     Spinner,
+    Footer,
   },
   computed: {
     products() {
