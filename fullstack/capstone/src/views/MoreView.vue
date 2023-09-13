@@ -1,14 +1,16 @@
 <template>  
+<div>
     <div>
         <ViewMore/>
     </div>
+</div>
 </template>
 
 <script>
-import ViewMore from "@/components/ViewMore.vue"
+import ViewMore from "../components/ViewMore.vue"
     export default {
         components:{
-            ViewMore
+            ViewMore,
         },
         computed:{
             products(){
