@@ -29,7 +29,7 @@
             >
           </button>
         </div>
-        <div class="side-kick">
+        <div class="side-kick container-fluid">
           <div
             class="hero"
             id="productS"
@@ -366,7 +366,7 @@
                         ? productItem.hoveredProdUrl
                         : productItem.prodUrl
                     "
-                    class="hero-img"
+                    class="hero-img img-fluid"
                     :alt="productItem.prodName"
                   />
                 </div>
@@ -595,8 +595,9 @@ a {
 .hero-text {
   /* left: 13%; */
   /* position: absolute; */
+  text-align: left;
   color: #fff;
-  font-size: 2rem;
+  font-size: 2.4vw;
   font-weight: 700;
   font-style: italic;
   /* bottom: 74%; */
@@ -605,7 +606,7 @@ a {
   /* left: 13%; */
   /* position: absolute; */
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.8vw;
   font-style: italic;
   text-align: left;
   /* bottom: 68%; */
@@ -614,7 +615,7 @@ a {
   /* left: 13%; */
   /* position: absolute; */
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2vw;
   font-style: italic;
   text-align: left;
   /* bottom: 58%; */
@@ -623,7 +624,7 @@ a {
   /* left: 13%; */
   /* position: absolute; */
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2vw;
   font-style: italic;
   text-align: left;
   /* bottom: 48%; */
@@ -645,7 +646,7 @@ a {
   margin: 0;
   letter-spacing: -0.05em;
   width: 80%;
-  font-size: 4.8rem !important;
+  font-size: 5.7vw !important;
   font-weight: 500;
   line-height: 95%;
   translate: none;
@@ -659,10 +660,11 @@ a {
   position: relative;
   left: 20%;
   top: 22%;
-  height: 4rem;
-  padding: 12px 35px;
+  width: 11vw;
+  height: 5vh;
+  padding: 0px 0px;
   background: #000000;
-  font-size: 17px;
+  font-size: 1vw;
   font-weight: 500;
   color: #ffffff;
   border: 3px solid #ffffff;

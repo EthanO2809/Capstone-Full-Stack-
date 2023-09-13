@@ -5,7 +5,7 @@
         ><img
           src="https://i.postimg.cc/nrZ260G3/14-removebg-preview.png"
           alt=""
-          class="img-01"
+          class="img-01 img-fluid"
       /></a>
       <button
         class="navbar-toggler"
@@ -44,6 +44,9 @@
             <router-link to="/profile">Profile</router-link>
           </li>
           <li class="nav-item" v-if="user">
+            <router-link to="/checkout">Check Out</router-link>
+          </li>
+          <li class="nav-item" v-if="user">
           <button @click="logout">Logout</button>
           </li>
         </ul>
@@ -53,7 +56,7 @@
         ><img
           src="https://i.postimg.cc/T16mtZ7N/pngwing-com-29.png"
           alt=""
-          class="img-02"
+          class="img-02 img-fluid"
       /></router-link>
       </div>
   </nav>
@@ -137,7 +140,7 @@ li {
 .nav-item {
   color: #e1e1e1;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   font-weight: 600;
   cursor: pointer;
   position: relative;
@@ -177,6 +180,7 @@ li {
   position: relative;
   right: 0%;
   padding-right: 0rem;
+  font-size: 1.2vw
 }
 
 @import url("https://fonts.cdnfonts.com/css/khula");
