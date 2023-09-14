@@ -3,16 +3,18 @@
   <div class="main">
     <div class="cartpg">
       <h2 class="text-center">Your Cart</h2>
-
-      <div class="flec">
-       
           <div
           class="eachitem" v-for="item in cart" :key="item.prodID">
+          <div class="flec">
+            <div class="img-cont">
+              <img :src="item.prodUrl" class="hero-img" alt="" />
+            </div>
+            <div class="info">
             <p class="prodname">{{ item.prodName }}</p>
-            <p>
-              <img :src="item.prodUrl" class="hero-img" :alt="item.prodName" />
-            </p>
+            <p class="proddesc">{{ item.prodDesc }}</p>
+            <p class="prodcat">{{ item.Category }}</p>
             <p class="price">Price: R{{ item.Price }}</p>
+            <div class="buttons">
             <button @click="removeFromCart(item.prodID)" class="button">
               <svg viewBox="0 0 448 512" class="svgIcon">
                 <path
@@ -20,9 +22,18 @@
                 ></path>
               </svg>
             </button>
+            <button @click="toCheckout" class="button">
+              Proceed to checkout
+              <!-- <svg viewBox="0 0 448 512" class="svgIcon">
+                <path
+                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                ></path>
+              </svg> -->
+            </button>
+            </div>
+            </div>
+            </div>
           </div>
-     
-      </div>
       <br />
       <br />
       <p class="total">Total Price: R{{ totalCartPrice }}</p>
@@ -53,6 +64,9 @@ export default {
     removeFromCart(prodID) {
       this.$store.dispatch("removeFromCart", prodID);
     },
+    toCheckout(){
+      this.$router.push("/checkout")
+    }
   },
 };
 </script>
@@ -62,14 +76,26 @@ export default {
   height: 100%;
   padding-bottom: 5.25rem;
 }
-
+.buttons{
+  display:flex;
+  gap:10px;
+}
 .flec {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  height: 100%;
+  width: 100vw;
+  /* border: 2px solid white; */
   padding-top: 4rem;
+}
+
+.img-cont {
+  /* border: 2px solid green; */
+  width: 32%;
+  height: 44vh;
+  
 }
 
 ul {
@@ -85,51 +111,58 @@ button {
 }
 
 .eachitem {
-  position: relative;
+  /* position: relative; */
   text-decoration: none;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
+}
+
+.info {
+  text-align: left;
+  font-size: 2.4rem !important;
+  font-weight: 750;
+  width: 40%;
+  /* border: 2px solid red; */
 }
 
 .price {
-  position: absolute;
-  bottom: 40%;
-  font-size: 1.2rem;
-  width: 100%;
+  font-size: 1.4rem !important;
 }
 
 .prodname {
-  font-size: 1rem;
-  position: absolute;
-  top: 28%;
-  width: 100%;
+  font-size: 1.4rem !important;
+  
 }
 
 ul {
   text-decoration: none;
 }
 .hero-img {
-  position: relative;
-  right: 100%;
-  width: 200px;
-  height: 200px;
+  /* position: relative; */
+  /* right: 100%; */
+  width: 32vw;
+  height: 48vh;
 }
 h2 {
-  padding-top: 10rem;
+  padding-top: 8rem;
+  font-size: 2.4rem;
   color: white;
 }
 
 p {
   color: white;
-  font-size: 1rem;
+  font-size: 1.4rem !important;
   text-decoration: none;
 }
 .total {
-  padding-bottom: 4rem;
+  padding-top: 12rem;
+  /* padding-bottom: 0rem; */
+  font-size: 2rem !important;
+  font-weight: 750;
 }
 
 .button {
-  position: absolute;
-  bottom: 25%;
+  /* position: absolute; */
+  /* bottom: 25%; */
   width: 50px;
   height: 50px;
   border-radius: 50%;

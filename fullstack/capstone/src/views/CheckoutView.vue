@@ -20,8 +20,8 @@
         <br />
         <div class="final">
           <p><b>Shipping:</b> Free*</p>
-          <p><b>Order Total:</b> {{}}</p>
-          <button>
+          <p><b>Order Total:</b> {{ totalCartPrice }}</p>
+          <button @click="done">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -54,6 +54,16 @@ export default {
   components: {
     Footer,
   },
+  computed:{
+    totalCartPrice() {
+      return this.$store.getters.totalCartPrice;
+    },
+  },
+  methods:{
+      done(){
+        this.$router.push("/")
+      }
+    }
 };
 </script>
 
