@@ -7,17 +7,6 @@
           alt=""
           class="img-01 img-fluid"
       /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
           <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex">
           <div v-if="user === null" class="log">
@@ -182,6 +171,73 @@ li {
   padding-right: 0rem;
   font-size: 1.2vw
 }
+@media (width < 701px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-item {
+    padding: 0.5rem ; 
+    font-size: .6rem;
+  }
+
+  .nav-link {
+    font-size: .6rem; 
+  }
+
+  .img-02 {
+    margin-top: 1rem; 
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .img-01 {
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0
+  }
+}
+
+@media (max-width: 300px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-item {
+    padding: 0.5rem ; 
+    font-size: .4rem;
+  }
+
+  .nav-link {
+    font-size: .4rem; 
+  }
+
+  .img-02 {
+    margin-top: 1rem; 
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .img-01 {
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0
+  }
 
 @import url("https://fonts.cdnfonts.com/css/khula");
+}
 </style>

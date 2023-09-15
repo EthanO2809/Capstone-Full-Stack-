@@ -114,26 +114,31 @@ li{
     color: rgb(255, 255, 255) !important;
   }
   
-  /* .copyright {
-    color: black !important;
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    float: left;
-  } */
+  @media (max-width: 300px) {
+  .footer {
+    /* padding: 1rem 0; */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: row;
+    height: 100%;
+  }
 
- /* .instagram{
-    width: 2rem;
-    background-color: #fff;
- }
+  .footer h3 {
+    font-size: .6rem;
+  }
 
- .facebook{
-    width: 2rem;
- }
+  .footer ul {
+    font-size: .4rem;
+  }
 
- .twitter{
-  width: 2rem;
- }
-   */
+  .logo {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .item {
+    padding: 0.5rem;
+  }
+}
 </style>

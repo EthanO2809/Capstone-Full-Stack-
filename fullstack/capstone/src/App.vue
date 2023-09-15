@@ -35,6 +35,8 @@ export default {
   background-attachment: fixed;
   height: 100%;
 }
+
+
 .modal{
   z-index:5 !important;
 }

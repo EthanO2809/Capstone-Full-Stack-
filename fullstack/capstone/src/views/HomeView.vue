@@ -18,13 +18,15 @@
     <center>
       <h2 class="h-02">Shop By Category</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center gap-6">
+      <div class="sec">
         <div class="col">
         <div class="card">
 <div class="card-img"><img src="https://i.postimg.cc/cCMB2yz5/Screenshot-2023-08-30-110650.png" alt="" class="img-01"></div>
   <div class="card-info">
-    <div class="card-text">
+    <div class="card-text"><router-link to="/products">
       <p class="text-title">PC&Monitor</p>
       <p class="text-subtitle">Category</p>
+      </router-link>
     </div>
     <div class="card-icon">
       <svg viewBox="0 0 28 25" class="icon">
@@ -38,9 +40,10 @@
         <div class="card">
 <div class="card-img"><img src="https://i.postimg.cc/9X9vBLW6/Screenshot-2023-08-30-111525.png" alt="" class="img-01"></div>
   <div class="card-info">
-    <div class="card-text">
+    <div class="card-text"><router-link to="/products">
       <p class="text-title1">Laptops</p>
       <p class="text-subtitle">Category</p>
+      </router-link>
     </div>
     <div class="card-icon">
       <svg viewBox="0 0 28 25" class="icon">
@@ -54,9 +57,10 @@
         <div class="card">
 <div class="card-img"><img src="https://i.postimg.cc/rs2pngKf/COMPUTER-accessories-1024x576.jpg" alt="" class="img-01"></div>
   <div class="card-info">
-    <div class="card-text">
+    <div class="card-text"><router-link to="/products">
       <p class="text-title">Accessories</p>
       <p class="text-subtitle">Category</p>
+      </router-link>
     </div>
     <div class="card-icon">
       <svg viewBox="0 0 28 25" class="icon">
@@ -66,7 +70,7 @@
   </div>
 </div>
       </div>
-
+    </div>
     </div>
     </center>
   </div>
@@ -278,5 +282,182 @@ export default {
   position: absolute;
   right: 16%;
   top: 28%;
+}
+
+.sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+@media (width < 701px) {
+.hero {
+    padding-top: 10rem;
+    padding-bottom: 0;
+    margin-top: 0;
+  }
+  .heroimg {
+    right: 28%;
+    width: 24%;
+    height: 12rem;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
+  .hero-text {
+    left: 30%;
+    font-size: 4vw;
+    line-height:1.8rem;
+  }
+  .cta {
+    top: 45%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-size: .4rem;
+    padding-right: 10px;
+  }
+  .cta span {
+    font-size: .8rem;
+    padding-bottom: 0px;
+    letter-spacing: 2px;
+  }
+  #arrow-horizontal {
+    width: 1rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .h-02 {
+    font-size: 1rem;
+    padding-top: 3rem;
+    margin: 0;
+  }
+  .card {
+    width: 18vw;
+    margin-right: 1vw;
+    height: 24vh;
+  }
+  .card-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #6eee8800;
+}
+
+.sec {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  padding-bottom: 2rem;
+}
+
+.col {
+  height: 100%;
+  width: 100%;
+}
+  .img-01 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-ast {
+    position: absolute;
+    right: 16%;
+    top: 30%;
+    width: 36%;
+  }
+  .text-title,
+  .text-title1,
+  .text-subtitle {
+    text-align: center;
+    font-size: .4rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 300px) {
+  .hero {
+    padding-top: 8rem;
+    padding-bottom: 0;
+    margin-top: 0;
+  }
+  .heroimg {
+    right: 28%;
+    width: 40%;
+    height: 12rem;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
+  .hero-text {
+    left: 34%;
+    font-size: .8rem;
+    line-height:1.5rem;
+  }
+  .cta {
+    top: 45%;
+    left: 24%;
+    transform: translate(-50%, -50%);
+    font-size: .4rem;
+    padding-right: 10px;
+  }
+  .cta span {
+    font-size: .5rem;
+    padding-bottom: 0px;
+    letter-spacing: 2px;
+  }
+  #arrow-horizontal {
+    width: 1rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .h-02 {
+    font-size: 1rem;
+    padding-top: 3rem;
+    margin: 0;
+  }
+  .card {
+    width: 30vw;
+    height: 20vh;
+  }
+  .card-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #6eee8800;
+}
+
+.sec {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  padding-bottom: 2rem;
+}
+
+.col {
+  height: 100%;
+  width: 100%;
+}
+  .img-01 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-ast {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    width: 36%;
+  }
+  .text-title,
+  .text-title1,
+  .text-subtitle {
+    text-align: center;
+    font-size: .4rem;
+    margin: 0;
+  }
 }
 </style>

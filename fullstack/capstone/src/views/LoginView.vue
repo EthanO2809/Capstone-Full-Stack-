@@ -30,11 +30,13 @@
     </form>
     <p>{{ loginMessage }}</p>
     </div>
+    <div class="img-cont">
     <img
       src="https://i.postimg.cc/YqMTskx0/astronaut-aesthetic-fishing-in-space-kc3tppv9wsqb7t48-removebg-preview.png"
       alt=""
       class="img-ast"
     />
+    </div>
   </div>
   <Footer />
   </div>
@@ -97,9 +99,11 @@ export default {
 }
 
 .img-ast {
-  position: absolute;
-  right: 4%;
-  top: 16%;
+  position: absolute !important;
+  left: 60% !important;
+  top: 20% !important;
+  height: 90vh !important;
+  width: 30vw !important;
 }
 
 .login {
@@ -107,7 +111,7 @@ export default {
   position: relative;
   color: white;
   padding-top: 12rem;
-  height: 90vh;
+  height: 100% !important;
 }
 
 .emailinp {
@@ -130,9 +134,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 13rem;
+  width: 16vw;
   overflow: hidden;
-  height: 3rem;
+  height: 6vh;
   background-size: 300% 300%;
   backdrop-filter: blur(1rem);
   border-radius: 5rem;
@@ -165,8 +169,9 @@ export default {
 strong {
   z-index: 2;
   font-family: "Avalors Personal Use";
-  font-size: 20px;
-  letter-spacing: 5px;
+  font-size: 100%;
+  width: 100%;
+  /* letter-spacing: 5px; */
   color: #ffffff;
   text-shadow: 0 0 4px white;
 }
@@ -303,20 +308,98 @@ strong {
 }
 
 .btndiv {
-  position: relative;
-  left: 30%;
-  padding-top: 2.5rem;
+  display: flex !important;
+ justify-content: center !important;
+ padding-top: 6vh !important;
 }
 
 .hero {
-  position: absolute;
-  padding-top: 2rem;
-  border-radius: 34px;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.212);
-  top: 25%;
-  left: 30%;
-  width: 34%;
-  height: 70%;
+  
+  padding-top: 1rem !important;
+  border-radius: 34px !important;
+  backdrop-filter: blur(8px) !important;
+  background: rgba(255, 255, 255, 0.212) !important;
+  width: 32vw !important;
+  height: 62vh !important;
+  margin-left: 28rem !important;
+  margin-bottom: 1rem !important;
+}
+
+@media (max-width: 300px) {
+  .navbar-collapse {
+    text-align: center!important;
+  }
+  .nav-item {
+    padding: 0.5rem 0!important;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  .img-01 {
+    width: 6rem!important;
+    height: 6rem!important;
+  }
+  .img-02 {
+    margin-top: 1rem!important;
+    width: 2.5rem!important;
+    height: 2.5rem!important;
+  }
+
+  .hero {
+    margin-left: 2rem!important;
+    margin-bottom: 6rem!important;
+    height: 60%!important;
+    width: 80%!important;
+    /* margin: 0!important; */
+  }
+  .lblname,
+  .lblemail,
+  .lblage,
+  .lblpass {
+    font-size: 1.2rem!important;
+    padding-top: 1rem!important;
+  }
+  .emailinp,
+  #username,
+  .passinp {
+    height: 2rem!important;
+    width: 60%!important;
+  }
+  .btn {
+    width: 40%!important;
+  }
+
+  .img-ast {
+    position: absolute!important;
+    top: 92%!important;
+    height: 40%!important;
+    width: 40%!important;
+  }
+
+  .footer h3 {
+    font-size: 1rem!important;
+  }
+  .footer ul {
+    font-size: 1rem!important;
+  }
+  .logo {
+    height: 6rem!important;
+    width: 6rem!important;
+  }
+  .item {
+    padding: 0.5rem!important;
+  }
+
+  .log {
+    flex-direction: column!important;
+    align-items: center!important;
+  }
+
+  .login {
+    height: 100%!important;
+    width: 100%!important;
+    padding-top: 8rem!important;
+    /* padding: 0!important; */
+  }
 }
 </style>

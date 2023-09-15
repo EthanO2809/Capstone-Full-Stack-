@@ -809,5 +809,65 @@ a {
   fill: #ffffff;
 }
 
+@media screen and (max-width: 300px) {
+  .prods {
+    padding-bottom: 2rem;
+    padding-top: 9rem!important;
+  }
+  .products {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-text {
+    font-size: 14px;
+  } 
+  .hero-text2 {
+    font-size: 12px;
+  } 
+  .hero-text3 {
+    font-size: 12px;
+  } 
+  .hero-text4 {
+    font-size: 12px;
+  } 
+  .side-kick {
+    left: 0;
+    height: 100%;
+  }
+  .text-info {
+    font-size: 20px !important;
+    margin: 0;
+    width: 50%;
+    text-align: left;
+    padding: 0
+  }
+  .kick-img {
+    padding: 0;
+    height: 60vh;
+    width: 50%;
+  }
+  .hero-img {
+    margin: 0;
+    width: 8rem;
+  }
+  .centered {
+    height: 100%
+  }
+
+  .btnn {
+    font-size: 10px;
+    width: 6rem;
+    margin: 0;
+  }
+  .star-button {
+    width: 100%;
+    padding: 0
+  }
+  .pps {
+    height: 4.2rem;
+  }
+
+}
+
 @import url("https://fonts.cdnfonts.com/css/sf-mono");
 </style>

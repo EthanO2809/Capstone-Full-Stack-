@@ -65,6 +65,29 @@ export default createStore({
     },
   },
   actions: {
+    async deactivate(context) {
+      try {
+        const res = await axios.delete(
+          `${api}user/${context.state.userData.userID}`,
+          {
+            headers: {
+              Authorization: context.state.token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const { err, msg } = res.data;
+        if (err) {
+          context.commit("setError", err);
+        }
+        if (msg) {
+          context.commit("setUser", msg);
+          console.log("User deleted successfully");
+        }
+      } catch (e) {
+        console.log("An error occured: ", e);
+      }
+    },
     addToCart({ commit }, productItem) {
       commit("addToCart", productItem);
     },

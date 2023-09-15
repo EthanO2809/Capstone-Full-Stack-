@@ -427,4 +427,132 @@ export default {
   font-style: italic;
   text-align: left;
 }
+@media screen and (max-width: 300px) {
+  .container {
+    padding-top: 8rem; 
+    height: 100%;
+  }
+
+  .btnn {
+    left: 10%;
+    top: 10%;
+    font-size: 14px; 
+  }
+  .prods {
+    padding-bottom: 2rem;
+    padding-top: 8rem;
+  }
+  .products {
+    font-size: 1.8rem !important;
+  }
+
+.text-content {
+  padding: 0;
+}
+
+button {
+  padding: 0;
+}
+  .hero-text {
+    font-size: 14px;
+  } 
+  .hero-text2 {
+    font-size: 12px;
+  } 
+  .hero-text3 {
+    font-size: 12px;
+  } 
+  .hero-text4 {
+    font-size: 12px;
+  } 
+  .side-kick {
+    left: 0;
+    height: 100%;
+  }
+  .text-info {
+    font-size: 20px !important;
+    margin: 0;
+    width: 50%;
+    text-align: left;
+    padding: 0
+  }
+  .img-content {
+    width: 100%;
+    height: 30vh;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .btnn {
+    height: 2rem;
+    width: 6rem;
+    font-size: 10px;
+    padding: 0;
+  }
+  
+
+}
+@media (width < 701px) {
+  .container {
+    padding-top: 8rem; 
+    height: 100%;
+  }
+
+  .btnn {
+    left: 10%;
+    top: 10%;
+    font-size: 14px; 
+  }
+  .prods {
+    padding-bottom: 2rem;
+    padding-top: 8rem;
+  }
+  .products {
+    font-size: 1.8rem !important;
+  }
+
+.text-content {
+  padding: 0;
+}
+
+button {
+  padding: 0;
+}
+  .hero-text {
+    font-size: 14px;
+  } 
+  .hero-text2 {
+    font-size: 12px;
+  } 
+  .hero-text3 {
+    font-size: 12px;
+  } 
+  .hero-text4 {
+    font-size: 12px;
+  } 
+  .side-kick {
+    left: 0;
+    height: 100%;
+  }
+  .text-info {
+    font-size: 20px !important;
+    margin: 0;
+    width: 50%;
+    text-align: left;
+    padding: 0
+  }
+  .img-content {
+    width: 80%;
+    height: 30vh;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .btnn {
+    height: 2rem;
+    width: 6rem;
+    font-size: 10px;
+    padding: 0;
+  }
+  
+
+}
 </style>

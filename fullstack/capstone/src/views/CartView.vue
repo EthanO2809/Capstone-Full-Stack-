@@ -22,14 +22,11 @@
                 ></path>
               </svg>
             </button>
-            <button @click="toCheckout" class="button">
-              Proceed to checkout
-              <!-- <svg viewBox="0 0 448 512" class="svgIcon">
-                <path
-                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
-                ></path>
-              </svg> -->
-            </button>
+    
+            <button @click="toCheckout" class="Btn">
+  Pay
+  <svg class="svgIcon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+</button>
             </div>
             </div>
             </div>
@@ -216,5 +213,124 @@ p {
   opacity: 1;
   transform: translateY(30px);
   transition-duration: 0.3s;
+}
+
+
+
+.Btn {
+  width: 130px;
+  height: 50px;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+
+.svgIcon {
+  width: 16px;
+}
+
+.svgIcon path {
+  fill: rgb(255, 0, 0);
+}
+
+.Btn::before {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: .3s;
+  mix-blend-mode: difference;
+}
+
+.Btn:hover::before {
+  transition-duration: .3s;
+  transform: translate(100%,-50%);
+  border-radius: 0;
+}
+
+.Btn:active {
+  transform: translate(5px,5px);
+  transition-duration: .3s;
+}
+
+@media screen and (max-width: 300px) {
+  .cartpg {
+    padding-top: 2rem; /* Adjust as needed for smaller screens */
+  }
+
+  .eachitem {
+    flex-direction: column; /* Adjust item layout for smaller screens */
+    align-items: center;
+  }
+
+  .img-cont {
+    width: 80%;
+    height: 20vh; 
+  }
+  .hero-img {
+    width: 100%;
+    height: 20vh;
+  }
+
+  .prodname {
+    font-size: .8rem!important;
+    font-weight: 800;
+  }
+  .proddesc {
+    font-size: .5rem!important;
+    font-weight: 800;
+  }
+  .prodcat {
+    font-size: .7rem!important;
+    font-weight: 800;
+  }
+  .price {
+    font-size: .7rem!important;
+    font-weight: 800;
+  }
+
+  .info {
+    width: 80%;
+    font-size: .6rem !important;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .buttons {
+    margin-left: 1rem;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .button {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .total {
+    padding-top: 1rem; 
+    font-size: 1rem !important; 
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
 }
 </style>

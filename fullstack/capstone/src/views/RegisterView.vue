@@ -51,11 +51,13 @@
       </form>
       <p>{{ registrationError }}</p>
     </div>
+    <div class="img-cont">
     <img
       src="https://i.postimg.cc/YqMTskx0/astronaut-aesthetic-fishing-in-space-kc3tppv9wsqb7t48-removebg-preview.png"
       alt=""
       class="img-ast"
     />
+    </div>
   </div>
   <Footer />
   </div>
@@ -100,61 +102,65 @@ export default {
 </script>
 
 <style scoped>
+
 .lblname {
   padding-top: 1rem;
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 .lblemail {
   /* padding-top: 1rem; */
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 .lblage {
   /* padding-top: 1rem; */
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 .lblpass {
   /* padding-top: 1rem; */
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 .img-ast {
-  position: absolute;
-  right: 4%;
-  top: 16%;
+  position: relative;
+  left: 10%;
+  top: 0;
+  height: 90vh;
+  width: 30vw;
 }
 
 .register {
   font-family: "Arya", sans-serif;
-  position: relative;
+  display: flex;
+  justify-content: center;
   color: white;
   padding-top: 12rem;
-  height: 90vh;
+  height: 95vh;
 }
 
 .emailinp {
   text-align: center;
   font-weight: 800;
-  width: 20rem;
-  height: 2rem;
+  width: 22vw;
+  height: 4.4vh;
   border-radius: 16px;
 }
 
 #username {
   text-align: center;
   font-weight: 800;
-  width: 20rem;
-  height: 2rem;
+  width: 22vw;
+  height: 4.4vh;
   border-radius: 16px;
 }
 
 .passinp {
   text-align: center;
   font-weight: 600;
-  width: 20rem;
-  height: 2rem;
+  width: 22vw;
+  height: 4.4vh;
   border-radius: 16px;
 }
 
@@ -162,9 +168,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 13rem;
+  width: 16vw;
   overflow: hidden;
-  height: 3rem;
+  height: 6vh;
   background-size: 300% 300%;
   backdrop-filter: blur(1rem);
   border-radius: 5rem;
@@ -197,8 +203,9 @@ export default {
 strong {
   z-index: 2;
   font-family: "Avalors Personal Use";
-  font-size: 20px;
-  letter-spacing: 5px;
+  font-size: 100%;
+  width: 100%;
+  /* letter-spacing: 5px; */
   color: #ffffff;
   text-shadow: 0 0 4px white;
 }
@@ -335,20 +342,62 @@ strong {
 }
 
 .btndiv {
-  position: relative;
-  left: 30%;
-  padding-top: 1rem;
+ display: flex;
+ justify-content: center;
+ padding-top: 1vh;
 }
 
 .hero {
-  position: absolute;
-  padding-top: 2rem;
+  padding-top: 1rem;
   border-radius: 34px;
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.212);
-  top: 25%;
-  left: 30%;
-  width: 34%;
-  height: 70%;
+  width: 32vw;
+  height: 62vh;
+  margin-left: 10rem;
+}
+
+form {
+  height: 48vh;
+  width: 100%;
+}
+
+@media (max-width: 300px) {
+  .register {
+    padding-top: 8rem;
+    flex-direction: column;
+    align-items: center; 
+    height: 100%;
+  }
+
+  .img-ast {
+    width: 80%; 
+    height: 100%;
+  }
+
+  .hero {
+    width: 90%; 
+    height: 54vh;
+    margin: 0 auto; 
+  }
+
+  input {
+    height: 2rem !important;
+    width: 60% !important;
+  }
+
+  label {
+    font-size: 1rem !important;
+  }
+
+  .img-cont {
+    height: 60vh;
+    width: 100%;
+  }
+
+  .btn {
+    width: 40%; 
+    height: 2rem;
+  }
 }
 </style>

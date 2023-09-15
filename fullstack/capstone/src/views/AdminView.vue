@@ -63,7 +63,7 @@
       Filter by: {{ sort === "asc" ? "ascending" : "descending " }}
     </button>
   </div>
-    <h1 class="text-white">Products Table</h1>
+    <h1 class="text-white ">Products Table</h1>
     <AddProducts />
     <center>
       <div class="table-responsive">
@@ -109,7 +109,7 @@
   </div>
   </center>
   </div>
-
+<Footer />
   </div>
 </template>
 
@@ -119,13 +119,15 @@ import AddProducts from "../components/AddProducts.vue";
 import AddUser from "../components/AddUser.vue";
 import UpdateProducts from '../components/UpdateProducts.vue'
 import UpdateUser from '../components/UpdateUser.vue'
+import Footer from "../components/Footer.vue"
 export default {
   components: {
     Spinner,
     AddProducts,
     AddUser,
     UpdateProducts,
-    UpdateUser
+    UpdateUser,
+    Footer,
   },
   data() {
     return {
@@ -271,5 +273,24 @@ color: rgb(126, 126, 126);
 }
 .dropdown1{
   float: right;
+}
+
+@media screen and (max-width: 300px) {
+  .usetb {
+    padding-top: 8rem;
+  }
+
+  .th-1,
+  .th-2 {
+    font-size: 1rem;
+  }
+
+  .image {
+    width: 3rem; 
+  }
+
+  .del {
+    width: 4rem;
+  }
 }
 </style>  
